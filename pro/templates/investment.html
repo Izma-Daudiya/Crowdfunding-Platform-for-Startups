@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Mirrored from qrowd-html.vercel.app/main-html/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Dec 2024 04:59:21 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investment | Qrowd</title>
+    <!-- favicons Icons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/static/images/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/static/images/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/static/images/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/static/images/favicons/site.webmanifest" />
+    <meta name="description" content="Qrowd HTML 5 Template " />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="/static/vendors/bootstrap/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/static/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="/static/vendors/animate/custom-animate.css" />
+    <link rel="stylesheet" href="/static/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="/static/vendors/jarallax/jarallax.css" />
+    <link
+      rel="stylesheet"
+      href="/static/vendors/jquery-magnific-popup/jquery.magnific-popup.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/static/vendors/nouislider/nouislider.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/static/vendors/nouislider/nouislider.pips.css"
+    />
+    <link rel="stylesheet" href="/static/vendors/odometer/odometer.min.css" />
+    <link rel="stylesheet" href="/static/vendors/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="/static/vendors/qrowd-icons/style.css" />
+    <link
+      rel="stylesheet"
+      href="/static/vendors/tiny-slider/tiny-slider.min.css"
+    />
+    <link rel="stylesheet" href="/static/vendors/reey-font/stylesheet.css" />
+    <link
+      rel="stylesheet"
+      href="/static/vendors/owl-carousel/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/static/vendors/owl-carousel/owl.theme.default.min.css"
+    />
+    <link rel="stylesheet" href="/static/vendors/bxslider/jquery.bxslider.css" />
+    <link
+      rel="stylesheet"
+      href="/static/vendors/bootstrap-select/css/bootstrap-select.min.css"
+    />
+    <link rel="stylesheet" href="/static/vendors/vegas/vegas.min.css" />
+    <link rel="stylesheet" href="/static/vendors/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="/static/vendors/timepicker/timePicker.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="/static/css/qrowd.css" />
+    <link rel="stylesheet" href="/static/css/qrowd-responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body class="custom-cursor">
+    {%if messages%}
+      {% for msg in messages%}
+        <script>alert("{{msg}}")</script>
+      {% endfor %}
+    {% endif %}
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+    <div class="preloader">
+      <div class="preloader__image"></div>
+    </div>
+    <!-- /.preloader -->
+
+    <div class="page-wrapper">
+      {% include "nav.html "%}
+
+      <div class="stricky-header stricked-menu main-menu">
+        <div class="sticky-header__content"></div>
+        <!-- /.sticky-header__content -->
+      </div>
+      <!-- /.stricky-header -->
+
+      <!--Contact One Start-->
+      <section class="contact-one" style="padding: 45px 0 120px">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2 class="section-title__title">Invest in {{project.startup_id.startup_name}}</h2>
+            </div>
+            <div class="contact-one__form-box">
+                <form action="/confirminvestment" method="post"  enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="hidden" name="pid" value="{{ project.id }}">
+                    <div class="row">
+                        <div class="col-xl-4">
+                            <div class="contact-form__input-box">
+                                <input
+                                    type="text"
+                                    name="pancard"
+                                    style="
+                                        height: 60px;
+                                        width: 100%;
+                                        border: none;
+                                        background-color: var(--qrowd-extra);
+                                        padding-left: 30px;
+                                        padding-right: 30px;
+                                        outline: none;
+                                        font-size: 14px;
+                                        color: var(--qrowd-gray);
+                                        display: block;
+                                        font-weight: 500;
+                                    "
+                                    maxlength="10"
+                                    placeholder="Pan Card Number"
+                                    required
+                                />
+                                {% if errors.pancard %}
+                                <span style="color: red; font-size: 14px">{{ errors.pancard }}</span>
+                                {% endif %}
+                                <span id="pancard-error" style="color: red; font-size: 14px"></span>
+                            </div>
+                        </div>
+                        <div class="col-xl-4">
+                            <div class="contact-form__input-box">
+                                <input
+                                    type="number"
+                                    name="amount"
+                                    id="investment-amount"
+                                    style="
+                                        height: 60px;
+                                        width: 100%;
+                                        border: none;
+                                        background-color: var(--qrowd-extra);
+                                        padding-left: 30px;
+                                        padding-right: 30px;
+                                        outline: none;
+                                        font-size: 14px;
+                                        color: var(--qrowd-gray);
+                                        display: block;
+                                        font-weight: 500;
+                                    "
+                                    placeholder="Amount to Invest"
+                                    required
+                                    min="{{ project.minimum_investment }}"
+                                    max="{{ project.maximum_investment }}"
+                                />
+                                {% if errors.amount %}
+                                <span style="color: red; font-size: 14px">{{ errors.amount }}</span>
+                                {% endif %}
+                                <span id="amount-error" style="color: red; font-size: 14px"></span>
+                                <small style="color: var(--qrowd-gray);">Minimum: ₹{{ project.minimum_investment }}, Maximum: ₹{{ project.maximum_investment }}</small>
+                            </div>
+                        </div>
+                        <div class="col-xl-4">
+                            <div class="contact-form__input-box">  
+                                <strong id="equity-display" style="color: var(--qrowd-gray);">
+                                    Enter amount to see equity percentage
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="login-register__checkbox">
+                                <input
+                                    type="checkbox"
+                                    id="login-register__policy"
+                                    name="login-register__policy"
+                                    required
+                                />
+                                <label for="login-register__policy"
+                                    >I accept company <a href="privacypolicy">terms &amp; conditions</a>.</label
+                                >
+                                {% if errors.policy and submitted %}
+                                <span style="color: red; font-size: 14px"
+                                    >{{ errors.policy }}</span
+                                >
+                                {% endif %}
+                                <span
+                                    id="policy-error"
+                                    style="font-size: 15px; display: none; color: red"
+                                ></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="contact-form__btn-box">
+                                <button type="submit" class="thm-btn contact-form__btn">
+                                    Proceed to Invest
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const form = document.querySelector(".contact-one__form");
+                const panCardInput = document.querySelector('input[name="pancard"]');
+                const amountInput = document.getElementById("investment-amount");
+                const pancardError = document.getElementById("pancard-error");
+                const amountError = document.getElementById("amount-error");
+                const policyCheckbox = document.getElementById("login-register__policy");
+                const policyError = document.getElementById("policy-error");
+                const equityDisplay = document.getElementById("equity-display");
+    
+                // Get the startup's funding details from Django template variables
+                const totalEquityOffer = parseFloat("{{ project.startup_id.equity_offer }}");
+                const amountToRaise = parseFloat("{{ project.startup_id.amount_to_raise }}");
+                const startupName = "{{ project.startup_id.startup_name }}";
+                const minAmount = parseFloat("{{ project.minimum_investment }}");
+                const maxAmount = parseFloat("{{ project.maximum_investment }}");
+    
+                // Real-time Validation and Calculations
+                panCardInput.addEventListener("input", validatePanCard);
+                amountInput.addEventListener("input", function() {
+                  const isValid = validateAmount();
+                  if (isValid) {
+                    calculateEquity();
+                  } else {
+                    // Don't calculate equity if amount is invalid
+                    equityDisplay.textContent = "Enter a valid amount between ₹" + minAmount + " and ₹" + maxAmount + " to see equity";
+                  }
+                });
+                policyCheckbox.addEventListener("change", () => {
+                    if (policyError.textContent) policyError.style.display = "none";
+                    validatePolicy();
+                });
+    
+                // Form Submission Validation
+                form.addEventListener("submit", function (event) {
+                    let isValid = true;
+    
+                    if (!validatePanCard()) isValid = false;
+                    if (!validateAmount()) isValid = false;
+                    if (!validatePolicy()) isValid = false;
+    
+                    if (!isValid) {
+                        event.preventDefault();
+                    }
+                });
+    
+                // Calculate equity percentage based on investment amount
+                function calculateEquity() {
+                    const amountValue = parseFloat(amountInput.value);
+                    
+                    if(!isNaN(amountValue)) {
+                        const equityPercentage = (amountValue / amountToRaise) * totalEquityOffer;
+                        equityDisplay.textContent = `You're investing ₹${amountValue.toLocaleString()} for ${equityPercentage.toFixed(2)}% equity in ${startupName}`;
+                    } else {
+                      equityDisplay.textContent = "Enter a valid amount between ₹" + minAmount + " and ₹" + maxAmount + " to see equity";
+                    }
+                }
+    
+                // Validation Functions
+                function validatePanCard() {
+                    const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+                    const panValue = panCardInput.value.trim().toUpperCase();
+                    panCardInput.value = panValue; // Auto-uppercase the input
+                    
+                    if (!panValue) {
+                        pancardError.textContent = "PAN Card is required.";
+                        return false;
+                    }
+                    
+                    if (!panRegex.test(panValue)) {
+                        pancardError.textContent = "Please enter a valid PAN Card (Format: AAAAA9999A)";
+                        return false;
+                    }
+                    
+                    pancardError.textContent = "";
+                    return true;
+                }
+    
+                function validateAmount() {
+                    const amountValue = parseFloat(amountInput.value);
+                    const minAmount = parseFloat("{{ project.minimum_investment }}");
+                    const maxAmount = parseFloat("{{ project.maximum_investment }}");
+                    
+                    if (isNaN(amountValue)) {
+                        amountError.textContent = "Amount is required.";
+                        return false;
+                    }
+                    
+                    if (amountValue < minAmount) {
+                        amountError.textContent = `Amount must be at least ₹${minAmount}`;
+                        return false;
+                    }
+                    
+                    if (amountValue > maxAmount) {
+                        amountError.textContent = `Amount cannot exceed ₹${maxAmount}`;
+                        return false;
+                    }
+                    
+                    amountError.textContent = "";
+                    return true;
+                }
+    
+                function validatePolicy() {
+                    if (!policyCheckbox.checked) {
+                        policyError.textContent = "You must accept the privacy policy.";
+                        policyError.style.display = "block";
+                        return false;
+                    } else {
+                        policyError.style.display = "none";
+                        return true;
+                    }
+                }
+            });
+        </script>
+      </section>
+      <!--Contact One End-->
+
+      <!--Site Footer Start-->
+      {% include "footer.html" %}
+      <!--Site Footer End-->
+    </div>
+    <!-- /.page-wrapper -->
+
+    <div class="mobile-nav__wrapper">
+      <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+      <!-- /.mobile-nav__overlay -->
+      <div class="mobile-nav__content">
+        <span class="mobile-nav__close mobile-nav__toggler"
+          ><i class="fa fa-times"></i
+        ></span>
+
+        <div class="logo-box">
+          <a href="index.html" aria-label="logo image"
+            ><img src="/static/images/resources/logo-2.png" width="143" alt=""
+          /></a>
+        </div>
+        <!-- /.logo-box -->
+        <div class="mobile-nav__container"></div>
+        <!-- /.mobile-nav__container -->
+
+        <ul class="mobile-nav__contact list-unstyled">
+          <li>
+            <i class="fa fa-envelope"></i>
+            <a href="mailto:needhelp@packageName__.com">needhelp@qrowd.com</a>
+          </li>
+          <li>
+            <i class="fa fa-phone-alt"></i>
+            <a href="tel:666-888-0000">666 888 0000</a>
+          </li>
+        </ul>
+        <!-- /.mobile-nav__contact -->
+        <div class="mobile-nav__top">
+          <div class="mobile-nav__social">
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-facebook-square"></a>
+            <a href="#" class="fab fa-pinterest-p"></a>
+            <a href="#" class="fab fa-instagram"></a>
+          </div>
+          <!-- /.mobile-nav__social -->
+        </div>
+        <!-- /.mobile-nav__top -->
+      </div>
+      <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+    
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"
+      ><i class="icon-right-arrow"></i
+    ></a>
+
+    <script src="/static/vendors/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/static/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/vendors/jarallax/jarallax.min.js"></script>
+    <script src="/static/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="/static/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="/static/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="/static/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="/static/vendors/jquery-validate/jquery.validate.min.js"></script>
+    <script src="/static/vendors/nouislider/nouislider.min.js"></script>
+    <script src="/static/vendors/odometer/odometer.min.js"></script>
+    <script src="/static/vendors/swiper/swiper.min.js"></script>
+    <script src="/static/vendors/tiny-slider/tiny-slider.min.js"></script>
+    <script src="/static/vendors/wnumb/wNumb.min.js"></script>
+    <script src="/static/vendors/wow/wow.js"></script>
+    <script src="/static/vendors/isotope/isotope.js"></script>
+    <script src="/static/vendors/countdown/countdown.min.js"></script>
+    <script src="/static/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/static/vendors/bxslider/jquery.bxslider.min.js"></script>
+    <script src="/static/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="/static/vendors/vegas/vegas.min.js"></script>
+    <script src="/static/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="/static/vendors/timepicker/timePicker.js"></script>
+    <script src="/static/vendors/circleType/jquery.circleType.js"></script>
+    <script src="/static/vendors/circleType/jquery.lettering.min.js"></script>
+
+    <!-- template js -->
+    <script src="/static/js/qrowd.js"></script>
+  </body>
+
+  <!-- Mirrored from qrowd-html.vercel.app/main-html/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Dec 2024 04:59:21 GMT -->
+</html>

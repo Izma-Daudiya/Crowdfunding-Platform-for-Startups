@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Mirrored from qrowd-html.vercel.app/main-html/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Dec 2024 04:59:21 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile | Qrowd</title>
+    <!-- favicons Icons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/static/images/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/static/images/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/static/images/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/static/images/favicons/site.webmanifest" />
+    <meta name="description" content="Qrowd HTML 5 Template " />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="/static/vendors/bootstrap/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/static/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="/static/vendors/animate/custom-animate.css" />
+    <link rel="stylesheet" href="/static/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="/static/vendors/jarallax/jarallax.css" />
+    <link
+      rel="stylesheet"
+      href="/static/vendors/jquery-magnific-popup/jquery.magnific-popup.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/static/vendors/nouislider/nouislider.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/static/vendors/nouislider/nouislider.pips.css"
+    />
+    <link rel="stylesheet" href="/static/vendors/odometer/odometer.min.css" />
+    <link rel="stylesheet" href="/static/vendors/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="/static/vendors/qrowd-icons/style.css" />
+    <link
+      rel="stylesheet"
+      href="/static/vendors/tiny-slider/tiny-slider.min.css"
+    />
+    <link rel="stylesheet" href="/static/vendors/reey-font/stylesheet.css" />
+    <link
+      rel="stylesheet"
+      href="/static/vendors/owl-carousel/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/static/vendors/owl-carousel/owl.theme.default.min.css"
+    />
+    <link rel="stylesheet" href="/static/vendors/bxslider/jquery.bxslider.css" />
+    <link
+      rel="stylesheet"
+      href="/static/vendors/bootstrap-select/css/bootstrap-select.min.css"
+    />
+    <link rel="stylesheet" href="/static/vendors/vegas/vegas.min.css" />
+    <link rel="stylesheet" href="/static/vendors/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="/static/vendors/timepicker/timePicker.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="/static/css/qrowd.css" />
+    <link rel="stylesheet" href="/static/css/qrowd-responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body class="custom-cursor">
+    {%if messages%}
+      {% for msg in messages%}
+        <script>alert("{{msg}}")</script>
+      {% endfor %}
+    {% endif %}
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+    <div class="preloader">
+      <div class="preloader__image"></div>
+    </div>
+    <!-- /.preloader -->
+
+    <div class="page-wrapper">
+      {% include "nav.html" %}
+
+      <div class="stricky-header stricked-menu main-menu">
+        <div class="sticky-header__content"></div>
+        <!-- /.sticky-header__content -->
+      </div>
+      <style>
+        .contact-one {
+          background-color: #f9f9f9;
+          padding: 50px 0;
+          font-family: 'Arial', sans-serif;
+          color: #333;
+        }
+        .container1 {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 20px;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section-title {
+          text-align: center;
+        }
+        .section-title img {
+          border: 5px solid #fff;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          margin-bottom: 20px;
+        }
+        .section-title h4 {
+          font-size: 18px;
+          margin: 10px 0;
+          color: #555;
+        }
+      </style>
+      <!-- /.stricky-header -->
+            <!--Contact One Start-->
+     
+      <section class="contact-one" style="padding: 0;">
+        <div class="container1" style="display: flex; justify-content: center; align-items:center;">
+            <div class="section-title text-center">
+                <!-- Display Profile Information -->
+                <div id="profile-info">
+                    <div>
+                        <img src="/media/{{user.photo}}" alt="photo" height="200" width="200" style="border-radius:50%"></img>       
+                    </div>
+                    <h4>Username: {{user.user_id}}</h4>
+                    <h4>Location: {{user.loc_id}}</h4>
+                    <h4>Linkedin: <a href="{{user.linkedin_url}}">{{user.linkedin_url}}</a></h4>
+                    <h4>Date of birth: {{user.dob}}</h4>
+                    {% if user.role == "entrepreneur" %}
+                        <h4>Role: Entrepreneur</h4>
+                    {% elif user.role == "investor" %}
+                        <h4>Role: Investor</h4>
+                    {% endif %}
+                    <h4>Experience: {{user.experience}}</h4>
+                    {% comment %} <a href="#" id="edit-btn" class="thm-btn main-slider-two__btn" style="padding:10px; margin:6px;">Edit</a>
+                    <a href="/" class="thm-btn main-slider-two__btn" style="padding:10px; margin:6px;">OK</a> {% endcomment %}
+                </div>
+    
+                <!-- Edit Profile Form (Hidden by Default) -->
+                {% comment %} <form id="edit-form" style="display: none;" method="POST" action="update-profile" enctype="multipart/form-data" onsubmit=return validateForm()>
+                  {%csrf_token%}
+                  <input type="hidden" value={{user.id}} name="user_id">
+                    <div>
+                        <img src="media/{{user.photo}}" alt="photo" height="200" width="200" style="border-radius:50%" style="position: relative;  object-fit: cover"></img>       
+                        <label for="fileInput"
+                        style="
+                        cursor: pointer;
+                        position: absolute;
+                        top:23%;
+                        right:30%;
+                        background: rgba(0, 0, 0, 0.5);
+                        color: white;
+                        padding: 0 5px;
+                        border-radius: 52% 
+                        "><i class="fa-solid fa-pen"></i></label>
+                        <input
+                        type="file"
+                        accept="image/*"
+                        id="fileInput"
+                        name="photo"
+                        style="display: none"  />
+                        <span style="font-size:14px; color:red;" id="photoError" ></span>
+                    </div>
+                    <h4>Username: <input type="text" name="username" value="{{user.user_id}}" pattern="^[A-Za-z]+(?:\s[A-Za-z]+)*$" minlength="3"
+                      maxlength="30" required oninput="validateUsername(this)" onblur="validateUsername(this)" style="
+                      height: 60px;
+                      width: 100%;
+                      border: none;
+                      background-color: var(--qrowd-extra);
+                      padding-left: 30px;
+                      padding-right: 30px;
+                      outline: none;
+                      font-size: 14px;
+                      color: var(--qrowd-gray);
+                      display: block;
+                      font-weight: 500;
+                    "></h4>
+                    <span style="font-size:14px; color:red;" id="usernameError" ></span>
+                    <h4>Location: {{user.loc_id}}</h4>
+                    <h4>Linkedin: <input type="url" name="linkedin_url" value="{{user.linkedin_url}}" required style="
+                      height: 60px;
+                      width: 100%;
+                      border: none;
+                      background-color: var(--qrowd-extra);
+                      padding-left: 30px;
+                      padding-right: 30px;
+                      outline: none;
+                      font-size: 14px;
+                      color: var(--qrowd-gray);
+                      display: block;
+                      font-weight: 500;
+                    " oninput="validateLinkedInUrl(this)" onblur="validateLinkedInUrl(this)"></h4>
+                    <span style="font-size:14px; color:red;" id="linkedinError" ></span>
+                    <h4>Date of birth: {{user.dob}}</h4>
+                    {% if user.role == "entrepreneur" %}
+                        <h4>Role: Entrepreneur</h4>
+                    {% elif user.role == "investor" %}
+                        <h4>Role: Investor</h4>
+                    {% endif %}
+                    <h4>Experience: <textarea name="experience" required style="
+                      height: 60px;
+                      width: 100%;
+                      border: none;
+                      background-color: var(--qrowd-extra);
+                      padding-left: 30px;
+                      padding-right: 30px;
+                      outline: none;
+                      font-size: 14px;
+                      color: var(--qrowd-gray);
+                      display: block;
+                      font-weight: 500;
+                    " oninput="validateExperience(this)" onblur="validateExperience(this)">{{user.experience}}</textarea></h4>
+                    <span style="font-size:14px; color:red;" id="expError"></span>
+                    <button type="submit" class="thm-btn main-slider-two__btn" style="padding:10px; margin:6px;">Save</button>
+                    <a href="#" id="cancel-btn" class="thm-btn main-slider-two__btn" style="padding:10px; margin:6px;">Cancel</a>
+                </form>
+                <script>
+                  // Validate photo size (max 25MB)
+                  function validatePhoto(input) {
+                      const photoError = document.getElementById('photoError');
+                      if (input.files && input.files[0]) {
+                          const fileSize = input.files[0].size / 1024 / 1024; // Convert to MB
+                          if (fileSize > 25) {
+                              photoError.innerText = 'Photo size must not exceed 25MB.';
+                              input.value = ''; // Clear the file input
+                          } else {
+                              photoError.innerText = '';
+                          }
+                      }
+                  }
+                
+                  // Validate username
+                  function validateUsername(input) {
+                      const usernameError = document.getElementById('usernameError');
+                      const username = input.value;
+                      if (!username) {
+                          usernameError.innerText = 'Username is required.';
+                      } else if (username.length < 3 || username.length > 30 || !/^[A-Za-z]+(?:\s[A-Za-z]+)*$/.test(username)) {
+                          usernameError.innerText = 'Username must be 3-30 characters and contain only letters and spaces.';
+                      } else {
+                          usernameError.innerText = '';
+                      }
+                  }
+                
+                  // Validate LinkedIn URL
+                  function validateLinkedInUrl(input) {
+                      const linkedinError = document.getElementById('linkedinError');
+                      const linkedinUrl = input.value;
+                      if (!linkedinUrl) {
+                          linkedinError.innerText = 'LinkedIn URL is required.';
+                      } else if (!isValidUrl(linkedinUrl)) {
+                          linkedinError.innerText = 'Please enter a valid LinkedIn URL.';
+                      } else {
+                          linkedinError.innerText = '';
+                      }
+                  }
+                
+                  // Validate experience
+                  function validateExperience(input) {
+                      const expError = document.getElementById('expError');
+                      const experience = input.value;
+                      if (!experience) {
+                          expError.innerText = 'Experience is required.';
+                      } else {
+                          expError.innerText = '';
+                      }
+                  }
+                
+                  // Check if a URL is valid
+                  function isValidUrl(url) {
+                      try {
+                          new URL(url);
+                          return true;
+                      } catch (error) {
+                          return false;
+                      }
+                  }
+                
+                  // Toggle between profile info and edit form
+                  document.getElementById('edit-btn').addEventListener('click', function(event) {
+                      event.preventDefault();
+                      document.getElementById('profile-info').style.display = 'none';
+                      document.getElementById('edit-form').style.display = 'block';
+                  });
+                
+                  document.getElementById('cancel-btn').addEventListener('click', function(event) {
+                      event.preventDefault();
+                      document.getElementById('profile-info').style.display = 'block';
+                      document.getElementById('edit-form').style.display = 'none';
+                  });
+                </script> {% endcomment %}
+            </div>
+        </div>
+      </section>
+    <script>
+      document.getElementById('edit-btn').addEventListener('click', function(event) {
+          event.preventDefault();
+          document.getElementById('profile-info').style.display = 'none';
+          document.getElementById('edit-form').style.display = 'block';
+      });
+  
+      document.getElementById('cancel-btn').addEventListener('click', function(event) {
+          event.preventDefault();
+          document.getElementById('profile-info').style.display = 'block';
+          document.getElementById('edit-form').style.display = 'none';
+      });
+  </script>
+      <!--Contact One End-->
+
+      <!--Site Footer Start-->
+      {% include "footer.html" %}
+      <!--Site Footer End-->
+    </div>
+    <!-- /.page-wrapper -->
+
+    <div class="mobile-nav__wrapper">
+      <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+      <!-- /.mobile-nav__overlay -->
+      <div class="mobile-nav__content">
+        <span class="mobile-nav__close mobile-nav__toggler"
+          ><i class="fa fa-times"></i
+        ></span>
+
+        <div class="logo-box">
+          <a href="index.html" aria-label="logo image"
+            ><img src="/static/images/resources/logo-2.png" width="143" alt=""
+          /></a>
+        </div>
+        <!-- /.logo-box -->
+        <div class="mobile-nav__container"></div>
+        <!-- /.mobile-nav__container -->
+
+        <ul class="mobile-nav__contact list-unstyled">
+          <li>
+            <i class="fa fa-envelope"></i>
+            <a href="mailto:needhelp@packageName__.com">needhelp@qrowd.com</a>
+          </li>
+          <li>
+            <i class="fa fa-phone-alt"></i>
+            <a href="tel:666-888-0000">666 888 0000</a>
+          </li>
+        </ul>
+        <!-- /.mobile-nav__contact -->
+        <div class="mobile-nav__top">
+          <div class="mobile-nav__social">
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-facebook-square"></a>
+            <a href="#" class="fab fa-pinterest-p"></a>
+            <a href="#" class="fab fa-instagram"></a>
+          </div>
+          <!-- /.mobile-nav__social -->
+        </div>
+        <!-- /.mobile-nav__top -->
+      </div>
+      <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+    
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"
+      ><i class="icon-right-arrow"></i
+    ></a>
+
+    <script src="/static/vendors/jquery/jquery-3.6.0.min.js"></script>
+    <script src="/static/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/vendors/jarallax/jarallax.min.js"></script>
+    <script src="/static/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="/static/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="/static/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="/static/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="/static/vendors/jquery-validate/jquery.validate.min.js"></script>
+    <script src="/static/vendors/nouislider/nouislider.min.js"></script>
+    <script src="/static/vendors/odometer/odometer.min.js"></script>
+    <script src="/static/vendors/swiper/swiper.min.js"></script>
+    <script src="/static/vendors/tiny-slider/tiny-slider.min.js"></script>
+    <script src="/static/vendors/wnumb/wNumb.min.js"></script>
+    <script src="/static/vendors/wow/wow.js"></script>
+    <script src="/static/vendors/isotope/isotope.js"></script>
+    <script src="/static/vendors/countdown/countdown.min.js"></script>
+    <script src="/static/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/static/vendors/bxslider/jquery.bxslider.min.js"></script>
+    <script src="/static/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="/static/vendors/vegas/vegas.min.js"></script>
+    <script src="/static/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="/static/vendors/timepicker/timePicker.js"></script>
+    <script src="/static/vendors/circleType/jquery.circleType.js"></script>
+    <script src="/static/vendors/circleType/jquery.lettering.min.js"></script>
+
+    <!-- template js -->
+    <script src="/static/js/qrowd.js"></script>
+  </body>
+
+  <!-- Mirrored from qrowd-html.vercel.app/main-html/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Dec 2024 04:59:21 GMT -->
+</html>

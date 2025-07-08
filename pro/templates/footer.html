@@ -1,0 +1,109 @@
+<footer class="site-footer">
+  <div class="site-footer__top">
+      <div class="site-footer__shape-1 float-bob-x">
+          <img src="static/images/shapes/site-footer-shape-1.png" alt="">
+      </div>
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                  <div class="footer-widget__column footer-widget__about">
+                      <div class="footer-widget__logo">
+                          <a href=""><img src="static/images/resources/footer-logo.png" alt=""></a>
+                      </div>
+                      <div class="footer-widget__about-text-box">
+                          <p class="footer-widget__about-text">Qrowd boosts startup success by connecting founders with investors and experts, enabling millions in strategic funding and real growth.</p>
+                      </div>
+                      <form class="footer-widget__subscribe-box" action="newsletter" method="POST">
+                          {%csrf_token%}
+                          <div class="footer-widget__subscribe-input-box">
+                              <input type="email" placeholder="Email address" name="email">
+                              <button type="submit" class="footer-widget__subscribe-btn"><img
+                                      src="/static/images/icon/paper-plan.png" alt=""></button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+              
+              <div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                  <div class="footer-widget__column footer-widget__Explore">
+                      <div class="footer-widget__title-box">
+                          <h3 class="footer-widget__title">Explore</h3>
+                      </div>
+                      <ul class="footer-widget__Explore-list list-unstyled">
+                          <li><a href="/">Home</a></li>
+                          <li><a href="/about">About</a></li>
+                          <li><a href="/faqs">FAQ</a></li>
+                          <li><a href="/testimonials">Success Stories</a></li> 
+                          <li><a href="/contact">Contact</a></li>
+                          <li><a href="/privacypolicy">Privacy Policy</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                  <div class="footer-widget__column footer-widget__Fundraising">
+                      <div class="footer-widget__title-box">
+                          <h3 class="footer-widget__title">Fundraising</h3>
+                      </div>
+                      <ul class="footer-widget__Explore-list list-unstyled">
+                          <li><a href="categorywiseproject/9">E-Commerce</a></li>
+                          <li><a href="categorywiseproject/2">Technology</a></li>
+                          <li><a href="categorywiseproject/5">EdTech</a></li>
+                          <li><a href="categorywiseproject/4">FinTech</a></li>
+                          <li><a href="categorywiseproject/11">Entertainment</a></li>
+                          <li><a href="categorywiseproject/17">Other</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
+                  <div class="footer-widget__column footer-widget__Contact">
+                      <div class="footer-widget__title-box">
+                          <h3 class="footer-widget__title">Contact</h3>
+                      </div>
+                      <ul class="footer-widget__Contact-list list-unstyled">
+                          <li>
+                              <div class="icon">
+                                  <span class="icon-telephone"></span>
+                              </div>
+                              <div class="text">
+                                  <p><a href="tel:+7041740174">+7041740174</a></p>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="icon">
+                                  <span class="icon-email"></span>
+                              </div>
+                              <div class="text">
+                                  <p><a href="mailto:qrowd@gmail.com">qrowd@gmail.com</a></p>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="icon">
+                                  <span class="icon-pin"></span>
+                              </div>
+                              <div class="text">
+                                  <p>Ahmedabad, India</p>
+                              </div>
+                          </li>
+                      </ul>
+                      <div class="site-footer__social">
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-facebook"></i></a>
+                          <a href="#"><i class="fab fa-instagram"></i></a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="site-footer__bottom">
+      <div class="container">
+          <div class="row">
+              <div class="col-xl-12">
+                  <div class="site-footer__bottom-inner">
+                      <p class="site-footer__bottom-text">© Copyright 2022 by <a href="">Qrowd.com</a></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>

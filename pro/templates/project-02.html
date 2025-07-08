@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from qrowd-html.vercel.app/main-html/project-02.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Dec 2024 04:58:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Browse Campaigns | Qrowd </title>
+    <!-- favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="static/images/favicons/site.webmanifest" />
+    <meta name="description" content="Qrowd HTML 5 Template " />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="static/vendors/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="static/vendors/animate/custom-animate.css" />
+    <link rel="stylesheet" href="static/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="static/vendors/jarallax/jarallax.css" />
+    <link rel="stylesheet" href="static/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="static/vendors/nouislider/nouislider.min.css" />
+    <link rel="stylesheet" href="static/vendors/nouislider/nouislider.pips.css" />
+    <link rel="stylesheet" href="static/vendors/odometer/odometer.min.css" />
+    <link rel="stylesheet" href="static/vendors/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="static/vendors/qrowd-icons/style.css">
+    <link rel="stylesheet" href="static/vendors/tiny-slider/tiny-slider.min.css" />
+    <link rel="stylesheet" href="static/vendors/reey-font/stylesheet.css" />
+    <link rel="stylesheet" href="static/vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="static/vendors/owl-carousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="static/vendors/bxslider/jquery.bxslider.css" />
+    <link rel="stylesheet" href="static/vendors/bootstrap-select/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="static/vendors/vegas/vegas.min.css" />
+    <link rel="stylesheet" href="static/vendors/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="static/vendors/timepicker/timePicker.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="static/css/qrowd.css" />
+    <link rel="stylesheet" href="static/css/qrowd-responsive.css" />
+</head>
+
+<body class="custom-cursor">
+    {%if messages%}
+    {% for msg in messages%}
+        <script>alert("{{msg}}")</script>
+    {% endfor %}
+    {% endif %}
+
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+
+
+
+
+    <div class="preloader">
+        <div class="preloader__image"></div>
+    </div>
+    <!-- /.preloader -->
+
+
+    <div class="page-wrapper">
+        {%include "nav.html"%}
+
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+        </div><!-- /.stricky-header -->
+
+        <!--Project Page Two Start-->
+        <section class="project-page-two" style="">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2 class="section-title__title">Explore Projects</h2>
+                </div>
+
+                <div style="display:flex; flex-wrap:wrap;justify-content:center;margin-bottom:20px;"> 
+                    <a href="?sort_by=featured">
+                        <div style="background-color:#20918c;border:2px solid white; color:white;padding:20px; border-radius:20px;font-weight:900; height:80px; text-align:center;">Featured</div>
+                    </a>
+                    <select name="category" id="category" style="background-color:#20918c;border:2px solid white; color:white;padding:20px; border-radius:20px;font-weight:900;" onchange="location = this.value;">
+                        <option value="?">Select Category</option>
+                        {% for i in category %}
+                        <option value="?category={{i.id}}">{{i.category}}</option>
+                        {% endfor %}
+                    </select>
+                    <a href="?sort_by=a_to_z">
+                        <div style="background-color:#20918c;border:2px solid white; color:white;padding:20px; border-radius:20px;font-weight:900;height:80px; text-align:center;">Sort A-Z</div>
+                    </a>
+                    <a href="?sort_by=funded">
+                        <div style="background-color:#20918c;border:2px solid white; color:white;padding:20px; border-radius:20px;font-weight:900; height:80px; text-align:center;">Funded</div>
+                    </a>
+                    <a href="?sort_by=new_and_noteworthy">
+                        <div style="background-color:#20918c;border:2px solid white; color:white;padding:20px; border-radius:20px;font-weight:900;height:80px; text-align:center;">New &amp; Noteworthy</div>
+                    </a>
+                    <form action="" method="get" style="background-color:#20918c;border:2px solid white; color:white;padding:20px; border-radius:20px;font-weight:900;">
+                        <input type="search" name="search" placeholder="Search...">
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+                
+                <script>
+                    document.getElementById('category').onchange = function() {
+                        if (this.value) {
+                            window.location.href = this.value;
+                        }
+                    };
+                </script>
+                
+                <div class="row">
+                    {% if no_results %}
+                    <h2 class="section-title__title" style="text-align:center">No similar projects found for "{{ search_query }}".</h2>
+                    {% elif not allProjectData %}
+                    <h2 class="section-title__title" style="text-align:center;">No Projects yet.</h2>
+                    {% endif %}
+                    <!--Recommended One Single Start-->
+                    {% for data in allProjectData %}
+
+                    <div class="col-xl-4 col-lg-6 col-md-6" style="cursor: pointer;">
+                        <div class="recommended-one__single">
+
+                            <div class="recommended-one__img-box">
+                                <div class="recommended-one__img">
+                                    <img src="media/{{data.image_url}}" alt="cover_image" height="401px">
+                                </div>
+                                {% if request.session.log_role != "entrepreneur" %}
+                                <div class="recomanded-one__icon">
+                                    <a href="#" class="wishlist-toggle" data-project-id="{{data.id}}">
+                                        <i class="{% if data.id in user_wishlist %}fas fa-heart{% else %}far fa-heart{% endif %}"></i>
+                                    </a>
+                                </div>
+                                {% endif %}
+                                <div class="recommended-one__content">
+                                    <div class="recommended-one__tag-and-remaining">
+                                        <div class="recommended-one-tag">
+                                            <p>{{data.startup_id.cat_id}}</p>
+                                        </div>
+                                        <div class="recommended-one__remaing">
+                                            <div class="icon">
+                                                <i class="fa fa-clock"></i>
+                                            </div>
+                                            <div class="text" style="">
+                                                <p>{{data.days_remaining}} Days Remaining</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3 class="recommended-one__title"><a href="projectdetails/{{data.id}}">{{data.title}}</a></h3>
+
+                                    <div class="progress-levels">
+                                        <!--Skill Box-->
+                                        <div class="progress-box">
+                                            <div class="inner count-box">
+                                                <div class="bar">
+                                                    <div class="bar-innner">
+                                                        <div class="skill-percent">
+                                                            <span class="count-text" data-speed="100"
+                                                                data-stop="{{ data.funding_percentage }}"></span>
+                                                            <span class="percent">%</span>
+                                                        </div>
+                                                        <div class="bar-fill" data-percent="{{ data.funding_percentage }}"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-one__goals">
+                                        <p class="project-one__goals-one"><span>Rs.{{ data.total_pledged|floatformat:1}}</span>
+                                            <br>Goal of Rs.{{data.startup_id.amount_to_raise}} at {{data.startup_id.equity_offer}} %</p>
+                                        <p class="project-one__goals-one"><span class="odometer "
+                                                data-count="{{ data.backers_count }}"></span>
+                                            <br>Backers We Got</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                    <!--Recommended One Single End-->
+                   
+                </div>
+            </div>
+        </section> 
+
+
+        
+        <!--Project Page Two End-->
+
+        <!--Site Footer Start-->
+        {% include "footer.html" %}
+        <!--Site Footer End-->
+
+
+    </div><!-- /.page-wrapper -->
+
+
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <!-- /.mobile-nav__overlay -->
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+
+            <div class="logo-box">
+                <a href="index.html" aria-label="logo image"><img src="static/images/resources/logo-2.png" width="143"
+                        alt="" /></a>
+            </div>
+            <!-- /.logo-box -->
+            <div class="mobile-nav__container"></div>
+            <!-- /.mobile-nav__container -->
+
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:needhelp@packageName__.com">needhelp@qrowd.com</a>
+                </li>
+                <li>
+                    <i class="fa fa-phone-alt"></i>
+                    <a href="tel:666-888-0000">666 888 0000</a>
+                </li>
+            </ul><!-- /.mobile-nav__contact -->
+            <div class="mobile-nav__top">
+                <div class="mobile-nav__social">
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-facebook-square"></a>
+                    <a href="#" class="fab fa-pinterest-p"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                </div><!-- /.mobile-nav__social -->
+            </div><!-- /.mobile-nav__top -->
+
+
+
+        </div>
+        <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+    
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="icon-right-arrow"></i></a>
+
+    {% for data in project %}
+<div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
+    <div class="project-one__single">
+        <div class="project-one__img-box">
+            <div class="project-one__img">
+                <img src="/media/{{data.image_url}}" alt="coverpage" height="200" width="290">
+            </div>
+            {% if request.session.log_role != "entrepreneur" %}
+            <div class="project-one__icon">
+                <a href="#" class="wishlist-toggle" data-project-id="{{data.id}}">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+            {%endif%}
+        </div>
+        <div class="project-one__content">
+            <div class="project-one__tag">
+                <p>{{data.startup_id.cat_id}}</p>
+            </div>
+            <h3 class="project-one__title"><a href="/projectdetails/{{data.id}}">{{data.title}}</a></h3>
+            <div class="project-one__remaing">
+                <div class="icon">
+                    <i class="fa fa-clock"></i>
+                </div>
+                <div class="text">
+                    <p>{{data.days_remaining}} Days Remaining</p>
+                </div>
+            </div>
+            <div class="progress-levels">
+                <!--Skill Box-->
+                <div class="progress-box">
+                    <div class="inner count-box">
+                        <div class="text">Raised</div>
+                        <div class="bar">
+                            <div class="bar-innner">
+                                <div class="skill-percent">
+                                    <span class="count-text" data-speed="3000" data-stop="70">0</span>
+                                    <span class="percent">%</span>
+                                </div>
+                                <div class="bar-fill" data-percent="70"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-one__goals">
+                <p class="project-one__goals-one">Achieved:<span>Rs.500000</span></p>
+                <p class="project-one__goals-one">Goal:<span>Rs.{{data.startup_id.amount_to_raise}} at {{data.startup_id.equity_offer}} %</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.wishlist-toggle').forEach(function(icon) {
+        icon.addEventListener('click', function(event) {
+            event.preventDefault();
+            var projectId = this.getAttribute('data-project-id');
+            fetch(`/toggle_wishlist/${projectId}/`, {
+                method: 'GET',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    var heartIcon = this.querySelector('i');
+                    if (data.is_in_wishlist) {
+                        heartIcon.classList.remove('far');
+                        heartIcon.classList.add('fas');
+                    } else {
+                        heartIcon.classList.remove('fas');
+                        heartIcon.classList.add('far');
+                    }
+                    if (window.location.pathname === '/wishlist') {
+                        this.closest('.col-xl-4').remove();
+                    }
+                }
+            });
+        });
+    });
+});
+</script>
+    <script src="static/vendors/jquery/jquery-3.6.0.min.js"></script>
+    <script src="static/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/vendors/jarallax/jarallax.min.js"></script>
+    <script src="static/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="static/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="static/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="static/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="static/vendors/jquery-validate/jquery.validate.min.js"></script>
+    <script src="static/vendors/nouislider/nouislider.min.js"></script>
+    <script src="static/vendors/odometer/odometer.min.js"></script>
+    <script src="static/vendors/swiper/swiper.min.js"></script>
+    <script src="static/vendors/tiny-slider/tiny-slider.min.js"></script>
+    <script src="static/vendors/wnumb/wNumb.min.js"></script>
+    <script src="static/vendors/wow/wow.js"></script>
+    <script src="static/vendors/isotope/isotope.js"></script>
+    <script src="static/vendors/countdown/countdown.min.js"></script>
+    <script src="static/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="static/vendors/bxslider/jquery.bxslider.min.js"></script>
+    <script src="static/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="static/vendors/vegas/vegas.min.js"></script>
+    <script src="static/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="static/vendors/timepicker/timePicker.js"></script>
+    <script src="static/vendors/circleType/jquery.circleType.js"></script>
+    <script src="static/vendors/circleType/jquery.lettering.min.js"></script>
+
+
+
+
+    <!-- template js -->
+    <script src="static/js/qrowd.js"></script>
+</body>
+
+
+<!-- Mirrored from qrowd-html.vercel.app/main-html/project-02.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Dec 2024 04:58:52 GMT -->
+</html>

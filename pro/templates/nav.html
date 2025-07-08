@@ -1,0 +1,155 @@
+<header class="main-header">
+  <div class="main-header__top">
+    <div class="main-header__top-inner">
+      <div class="main-header__top-left">
+        <ul class="list-unstyled main-header__contact-list">
+          <li>
+            <div class="icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="text">
+              <p>Ahmedabad, India</p>
+            </div>
+          </li>
+          <li>
+            <div class="icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="text">
+              <p>
+                <a href="mailto:needhelp@company.com"
+                  >qrowd@gmail.com</a
+                >
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="main-header__top-right">
+        <div class="main-header__login">
+          <ul class="list-unstyled main-header__login-list">
+            {% if request.session.log_username %}
+            <li><a href="/userdetail">{{request.session.log_username}}</a></li>
+            {% endif %} {% if request.session.log_username %}
+            <li>
+              <a href="/logout"> <i class="icon-account"></i> Logout</a>
+            </li>
+            {% else %}
+            <li>
+              <a href="/login"> <i class="icon-account"></i>Login</a>
+            </li>
+            <li><a href="/register">Register</a></li>
+            {% endif %}
+          </ul>
+        </div>
+        <div class="main-header__social">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="main-menu">
+    <div class="main-menu__wrapper">
+      <div class="main-menu__wrapper-inner clearfix">
+        <div class="main-menu__left">
+          <div class="main-menu__logo">
+            <a href="/"
+              ><img src="/static/images/resources/logo-1.png" alt=""
+            /></a>
+          </div>
+          <div class="main-menu__main-menu-box">
+            <a href="#" class="mobile-nav__toggler"
+              ><i class="fa fa-bars"></i
+            ></a>
+            <ul class="main-menu__list">
+              <li class="">
+                <a href="/">Home </a>
+              </li>
+              <li class="">
+                <a href="/startup">Register Startup </a>
+              </li>
+              <li class="">
+                <a href="/projects">Browse Campaigns </a>
+              </li>
+              {% comment %} <li class="current"> {% endcomment %}
+              <li class="">
+                <a href="/userdetail">My Account</a>
+              </li>
+              
+              {% if request.session.log_role == "entrepreneur" %}
+              <li>
+                <a
+                  href="/manage_campaign"
+                  class="thm-btn main-slider-two__btn"
+                  >+ Manage Campaign</a
+                >
+              </li>
+              {% endif %}
+              {% if request.session.log_role == "investor" %}
+              <li>
+                <a
+                  href="/manageinvestment"
+                  class="thm-btn main-slider-two__btn" style="padding:11px;"
+                  >+ Manage Investments</a
+                >
+              </li>
+              {% endif %}
+              {% if request.session.log_role == "investor" %}
+              <li style="">
+                <a href="/wishlist"><i class="far fa-heart"></i></a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+        <div class="main-menu__right">
+          <div class="main-menu__call-search-btn-box">
+            {% comment %} <div class="main-menu__call">
+              <div class="main-menu__call-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="main-menu__call-content">
+                <p class="main-menu__call-sub-title">Call Anytime</p>
+                <h5 class="main-menu__call-number">
+                  <a href="tel:7041740174">+7041740174</a>
+                </h5>
+              </div> 
+            </div> {% endcomment %}
+            <div class="main-menu__search-box">
+              <a
+                href="#"
+                class="main-menu__search search-toggler icon-magnifying-glass"
+              ></a>
+              <div class="search-popup">
+                <div class="search-popup__overlay search-toggler"></div>
+                <!-- /.search-popup__overlay -->
+                <div class="search-popup__content">
+                    <form action="projects"  method="GET" id="search-form">
+                        <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
+                        <input type="text" name="search" id="search-input" placeholder="Search Here..." />
+                        <button type="submit" aria-label="search submit" class="thm-btn">
+                            <i class="icon-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+                <!-- /.search-popup__content -->
+            </div>
+            <!-- /.search-popup -->
+        
+            </div>
+            {% comment %} <div class="main-menu__btn-box">
+              <a
+                href="project-details.html"
+                class="thm-btn main-menu__btn"
+                ><i class="icon-plus-symbol"></i>Add a Project</a
+              >
+            </div> {% endcomment %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+

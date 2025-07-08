@@ -1,0 +1,21 @@
+1.) Intro-->  Good Morning everyone. My name is Izma. Before we dive into details let my group members introduce themselves. Our Project is Crowdfunding Platform for Startups. Here is the index that states the list of figures, tables, project profile, etc. Now I'll present project profile.
+
+2.)Project Profile--> Our project primary goal is to connect enterpreneur with potential investors. Enterpreneurs who wants to raise capital will register their startups on our platform by submitting financial statements, business plan and pitchdeck and offering equity in their business. And  after admin approval, entrepreneur launch their campaign. Investors also get a chance to own stake in early stage startup. We streamline traditional fundraising process and charge a non-refundable success fee from startups. Next we'll see existing system.
+
+3.) Existing System--> Fundable, Seedrs, Indiegogo, AngelList are some examples of existing crowdfunding platform. Also while studying existing system we found some limitations. They charge high success fees from startups. Also there is no transparent due diligence and also not available advanced search and filtering. Also there are some regulatory barriers. Next we'll see proposed system.  
+
+4.) Proposed System--> So in proposed system we're providing user friendly look and a system which is easy to operate. Also users can create their profiles and also update and edit their profile.  Also startups can create detailed campaign pages with no limitation of pages. There are options of advanced search and filtering like campaigns are filtered on the basis of industry and on the basis of funding status. Also we are charging low fees from startups. Investors and entrepreneurs will have personalized dashboards where they can monitor the performance of all their investments. Also user can leave feedback and view successful stories from entrepreneurs and investors. Also entrepreneurs can post updates about their project progress. Next we'll see technologies that we'll use for our project. 
+
+5.) Hardware & Software Requirements--> For our project we need a computer with RAM of atleast 4GB or above and multi-core processor for smooth operation and harddisk of 256GB or above. For frontend we are using HTML, CSS & JS. And for backend we are using Python, Django and SQLite database. Next topic we'll be covered by Iqra.
+
+6.)System Flow Diagram--> So system flow diagram focuses on the sequence and control of processes within a system, showing how operations and components are linked. Here are the symbols of SFD. Next we'll see DFD.
+
+7.)Data Flow Diagram--> So DFD is a visual representation of how information flows within  a system. It shows how data enters and leaves the system, what changes the information and where data is stored. Level 0 defines context diagram and provides an overview of entire system as a single process. 
+Level 1 defines high level diagram and it also provides more detailed view illustrating the internal data flows between these sub-processes and how they interact with external entities. Level 2 defines detailed dfd and even more detailed breakdown of specific sub-processes from the Level 1 DFD.
+
+Additional Questions:
+1.)Explain modules of project.
+--> There are 3 actor modules in our project. Admin, Entrepreneur and Investor. The role of admin is to upgrade and maintain the system and to approve the startup fundraising campaign to ensure that they meet platform standards. 
+Enterpreneurs will register their startups on our platform and create campaign once startup is approved by the admin. They will be able to raise the fund by offering equity into their businesses.
+Investors browse campaigns and pledge funds in exchange of equity.
+       Feature Modules: User Verification, Startup Verification, Role based Dashboards, Campaign Creation, Secure Payment, Notification Systems

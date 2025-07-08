@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from qrowd-html.vercel.app/main-html/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Dec 2024 04:59:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start Your Project | Qrowd </title>
+    <!-- favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="static/images/favicons/site.webmanifest" />
+    <meta name="description" content="Qrowd HTML 5 Template " />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="static/vendors/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="static/vendors/animate/custom-animate.css" />
+    <link rel="stylesheet" href="static/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="static/vendors/jarallax/jarallax.css" />
+    <link rel="stylesheet" href="static/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="static/vendors/nouislider/nouislider.min.css" />
+    <link rel="stylesheet" href="static/vendors/nouislider/nouislider.pips.css" />
+    <link rel="stylesheet" href="static/vendors/odometer/odometer.min.css" />
+    <link rel="stylesheet" href="static/vendors/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="static/vendors/qrowd-icons/style.css">
+    <link rel="stylesheet" href="static/vendors/tiny-slider/tiny-slider.min.css" />
+    <link rel="stylesheet" href="static/vendors/reey-font/stylesheet.css" />
+    <link rel="stylesheet" href="static/vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="static/vendors/owl-carousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="static/vendors/bxslider/jquery.bxslider.css" />
+    <link rel="stylesheet" href="static/vendors/bootstrap-select/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="static/vendors/vegas/vegas.min.css" />
+    <link rel="stylesheet" href="static/vendors/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="static/vendors/timepicker/timePicker.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="static/css/qrowd.css" />
+    <link rel="stylesheet" href="static/css/qrowd-responsive.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="custom-cursor">
+{%if messages%}
+    {% for msg in messages%}
+        <script>alert("{{msg}}")</script>
+    {% endfor %}
+{% endif %}
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+
+
+
+
+    <div class="preloader">
+        <div class="preloader__image"></div>
+    </div>
+    <!-- /.preloader -->
+
+
+    <div class="page-wrapper">
+        {% include "nav.html" %}
+
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header_content"></div><!-- /.sticky-header_content -->
+        </div><!-- /.stricky-header -->
+
+
+        <!--Contact One Start-->
+        <section class="contact-one" style="padding: 45px 0 120px;">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2 class="section-title__title">Start Your Project</h2>
+                </div>
+                <div class="contact-one__form-box">
+                    <form action="projectDetails"  method="post" class="contact-one__form"
+                         enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                             <div class="col-xl-4">
+                                 <div>
+                                     <input type="text" name="title"  placeholder="Title of Project" style="height: 60px; width:100%; border: none; background-color: var(--qrowd-extra); padding-left: 20px; padding-right: 30px; outline: none; font-size: 14px; color: var(--qrowd-gray); display: block; font-weight: 500;">
+                                     {% if errors.title %}
+                                        <span style="font:size:14px; color:red;">{{errors.title}}</span>
+                                     {% endif %}
+                                     <span style="font:size:14px; color:red;" id="titleError"></span>
+                                 </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="contact-form__input-box">
+                                    <input type="number" name="min_investment" placeholder="Minimum investment"   style="height: 60px; width:100%; border: none; background-color: var(--qrowd-extra); padding-left: 30px; padding-right: 30px; outline: none; font-size: 14px; color: var(--qrowd-gray); display: block; font-weight: 500;">
+                                    {% if errors.min %}
+                                        <span style="font:size:14px; color:red;">{{errors.min}}</span>
+                                    {% endif %}
+                                    <span style="font:size:14px; color:red;" id="minError"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="contact-form__input-box">
+                                    <input type="number" name="max_investment" placeholder="Maximum investment"   style="height: 60px; width:100%; border: none; background-color: var(--qrowd-extra); padding-left: 30px; padding-right: 30px; outline: none; font-size: 14px; color: var(--qrowd-gray); display: block; font-weight: 500;">
+                                    {% if errors.max %}
+                                        <span style="font:size:14px; color:red;">{{errors.max}}</span>
+                                    {% endif %}
+                                    <span style="font:size:14px; color:red;" id="maxError"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="contact-form__input-box">
+                                    <label for="campaign_start_date" style="font-size: 14px; color: var(--qrowd-gray); padding-left:5px; font-weight: 700;">
+                                             Enter the campaign start date:
+                                     </label>
+                                    <input type="date" name="campaign_start_date"  id="campaign_start_date" style="height: 60px; width:100%; border: none; background-color: var(--qrowd-extra); padding-left: 20px; padding-right: 30px; outline: none; font-size: 14px; color: var(--qrowd-gray); display: block; font-weight: 500;">
+                                    {% if errors.start_date %}
+                                        <span style="font:size:14px; color:red;">{{errors.start_date}}</span>
+                                    {% endif %}
+                                    <span style="font:size:14px; color:red;" id="startDateError"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="contact-form__input-box">
+                                    <label for="campaign_end_date" style="font-size: 14px; color: var(--qrowd-gray); font-weight: 700; padding-left:5px;">
+                                             Enter the campaign end date:
+                                     </label>
+                                    <input type="date" name="campaign_end_date" id="campaign_end_date"  style="height: 60px; width:100%; border: none; background-color: var(--qrowd-extra); padding-left: 20px; padding-right: 30px; outline: none; font-size: 14px; color: var(--qrowd-gray); display: block; font-weight: 500;">
+                                    {% if errors.end_date %}
+                                        <span style="font:size:14px; color:red;">{{errors.end_date}}</span>
+                                    {% endif %}
+                                    <span style="font:size:14px; color:red;" id="endDateError"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="contact-form__input-box">
+                                    <label for="image" style="font-size: 14px; color: var(--qrowd-gray); font-weight: 700; padding-left:10px;">Cover Page of Project:</label>
+                                    <input type="file" name="image_url" id="image" accept="image/*" style="padding:10px;">
+                                    {% if errors.image %}
+                                        <span style="font:size:14px; color:red;">{{errors.image}}</span>
+                                    {% endif %}
+                                    <span style="font:size:14px; color:red;" id="imageError"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-12">
+                                <div class="contact-form__input-box text-message-box">
+                                    <textarea name="description" placeholder="Write detail Description of Project..."></textarea>
+                                    {% if errors.description %}
+                                        <span style="font:size:14px; color:red;">{{errors.description}}</span>
+                                    {% endif %}
+                                    <span style="font:size:14px; color:red;" id="descError"></span>
+                                </div>
+                                <div class="contact-form__btn-box">
+                                    <button type="submit" class="thm-btn contact-form__btn">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const form = document.querySelector(".contact-one__form");
+                    const titleInput = document.querySelector('input[name="title"]');
+                    const minInvestmentInput = document.querySelector('input[name="min_investment"]');
+                    const maxInvestmentInput = document.querySelector('input[name="max_investment"]');
+                    const startDateInput = document.querySelector('input[name="campaign_start_date"]');
+                    const endDateInput = document.querySelector('input[name="campaign_end_date"]');
+                    const imageInput = document.querySelector('input[name="image_url"]');
+                    const descriptionInput = document.querySelector('textarea[name="description"]');
+                
+                    const titleError = document.getElementById('titleError');
+                    const minError = document.getElementById('minError');
+                    const maxError = document.getElementById('maxError');
+                    const startDateError = document.getElementById('startDateError');
+                    const endDateError = document.getElementById('endDateError');
+                    const imageError = document.getElementById('imageError');
+                    const descError = document.getElementById('descError');
+                
+                    // Set min date for start date picker to today
+                    const today = new Date().toISOString().split('T')[0];
+                    startDateInput.setAttribute('min', today);
+                
+                    // Update end date picker when start date changes
+                    startDateInput.addEventListener('change', function () {
+                        const startDate = new Date(startDateInput.value);
+                        const minEndDate = new Date(startDate);
+                        minEndDate.setMonth(minEndDate.getMonth() + 3); // 3 months after start date
+                        endDateInput.setAttribute('min', minEndDate.toISOString().split('T')[0]);
+                    });
+                
+                    // Real-time validation functions
+                    function validateTitle() {
+                        const title = titleInput.value.trim();
+                        if (!title) {
+                            titleError.textContent = 'Title is required.';
+                            return false;
+                        } else if (title.length < 3 || title.length > 50) {
+                            titleError.textContent = 'Title must be between 3 and 50 characters.';
+                            return false;
+                        } else {
+                            titleError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    function validateminInvestment() {
+                        amount_to_raise = {{sid.amount_to_raise}}
+                        const minInvestment = parseFloat(minInvestmentInput.value);
+                        if(!minInvestment){
+                            minError.textContent = "Minimum Investment is required."
+                        }
+                        else if (isNaN(minInvestment) || minInvestment <= 0) {
+                            minError.textContent = 'Minimum investment must be greater than 0.';
+                            return false;
+                        } else if (minInvestment > 100000){
+                            minError.textContent = "Minimum Investment cannot greater than 100000."
+                        } else if (minInvestment > amount_to_raise){
+                            minError.textContent = "Minimum Investment cannot greater than amount to be raised."
+                        } else {
+                            minError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    function validatemaxInvestment() {
+                        amount_to_raise = {{sid.amount_to_raise}}
+                        const maxInvestment = parseFloat(maxInvestmentInput.value);
+                        const minInvestment = parseFloat(minInvestmentInput.value);
+                        if(!maxInvestment){
+                            maxError.textContent = "Maximum Investment is required."
+                        }
+                        else if (isNaN(maxInvestment) || maxInvestment <= 0) {
+                            maxError.textContent = 'Maximum investment must be greater than 0.';
+                            return false;
+                        } else if (maxInvestment < minInvestment) {
+                            maxError.textContent = 'Maximum investment must be greater than or equal to minimum investment.';
+                            return false;
+                        } else if (maxInvestment > 100000){
+                            maxError.textContent = "Maximum Investment cannot be greater than 100000."
+                        } else if (maxInvestment > amount_to_raise){
+                            maxError.textContent = "Maximum Investment cannot be greater than amount to be raised."
+                        }
+                        else {
+                            maxError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    function validateStartDate() {
+                        const startDate = startDateInput.value;
+                        if (!startDate) {
+                            startDateError.textContent = 'Start date is required.';
+                            return false;
+                        } else {
+                            startDateError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    function validateEndDate() {
+                        const startDate = startDateInput.value;
+                        const endDate = endDateInput.value;
+                        if (!endDate) {
+                            endDateError.textContent = 'End date is required.';
+                            return false;
+                        } else if (endDate <= startDate) {
+                            endDateError.textContent = 'End date must be after start date.';
+                            return false;
+                        } else {
+                            const startDateObj = new Date(startDate);
+                            const minEndDateObj = new Date(startDateObj);
+                            minEndDateObj.setMonth(minEndDateObj.getMonth() + 3);
+                            const endDateObj = new Date(endDate);
+                            if (endDateObj < minEndDateObj) {
+                                endDateError.textContent = 'End date must be at least 3 months after start date.';
+                                return false;
+                            } else {
+                                endDateError.textContent = '';
+                                return true;
+                            }
+                        }
+                    }
+                
+                    function validateImage() {
+                        const imageFile = imageInput.files[0];
+                        if (!imageFile) {
+                            imageError.textContent = 'Image is required.';
+                            return false;
+                        } else if (imageFile.size > 25 * 1024 * 1024) { // 25MB
+                            imageError.textContent = 'Image size must not exceed 25MB.';
+                            return false;
+                        } else {
+                            imageError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    function validateDescription() {
+                        const description = descriptionInput.value.trim();
+                        if (!description) {
+                            descError.textContent = 'Description is required.';
+                            return false;
+                        } else {
+                            descError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    // Real-time validation event listeners
+                    titleInput.addEventListener("input", validateTitle);
+                    minInvestmentInput.addEventListener("input", validateminInvestment);
+                    maxInvestmentInput.addEventListener("input", validatemaxInvestment);
+                    startDateInput.addEventListener("input", validateStartDate);
+                    endDateInput.addEventListener("input", validateEndDate);
+                    imageInput.addEventListener("change", validateImage);
+                    descriptionInput.addEventListener("input", validateDescription);
+                
+                    // Validate form on submission
+                    form.addEventListener("submit", function (event) {
+                        let isValid = true;
+                
+                        if (!validateTitle()) isValid = false;
+                        if (!validateminInvestment()) isValid = false;
+                        if (!validatemaxInvestment()) isValid = false;
+                        if (!validateStartDate()) isValid = false;
+                        if (!validateEndDate()) isValid = false;
+                        if (!validateImage()) isValid = false;
+                        if (!validateDescription()) isValid = false;
+                
+                        if (!isValid) {
+                            event.preventDefault(); // Prevent form submission if validation fails
+                        }
+                    });
+                });
+            </script>
+        </section>
+        <!--Contact One End-->
+
+        <!--Site Footer Start-->
+        {% include "footer.html" %}
+        <!--Site Footer End-->
+
+
+    </div><!-- /.page-wrapper -->
+
+
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav_overlay mobile-nav_toggler"></div>
+        <!-- /.mobile-nav__overlay -->
+        <div class="mobile-nav__content">
+            <span class="mobile-nav_close mobile-nav_toggler"><i class="fa fa-times"></i></span>
+
+            <div class="logo-box">
+                <a href="index.html" aria-label="logo image"><img src="static/images/resources/logo-2.png" width="143"
+                        alt="" /></a>
+            </div>
+            <!-- /.logo-box -->
+            <div class="mobile-nav__container"></div>
+            <!-- /.mobile-nav__container -->
+
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:needhelp@packageName__.com">needhelp@qrowd.com</a>
+                </li>
+                <li>
+                    <i class="fa fa-phone-alt"></i>
+                    <a href="tel:666-888-0000">666 888 0000</a>
+                </li>
+            </ul><!-- /.mobile-nav__contact -->
+            <div class="mobile-nav__top">
+                <div class="mobile-nav__social">
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-facebook-square"></a>
+                    <a href="#" class="fab fa-pinterest-p"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                </div><!-- /.mobile-nav__social -->
+            </div><!-- /.mobile-nav__top -->
+
+
+
+        </div>
+        <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+    
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="icon-right-arrow"></i></a>
+
+
+    <script src="static/vendors/jquery/jquery-3.6.0.min.js"></script>
+    <script src="static/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/vendors/jarallax/jarallax.min.js"></script>
+    <script src="static/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="static/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="static/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="static/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="static/vendors/jquery-validate/jquery.validate.min.js"></script>
+    <script src="static/vendors/nouislider/nouislider.min.js"></script>
+    <script src="static/vendors/odometer/odometer.min.js"></script>
+    <script src="static/vendors/swiper/swiper.min.js"></script>
+    <script src="static/vendors/tiny-slider/tiny-slider.min.js"></script>
+    <script src="static/vendors/wnumb/wNumb.min.js"></script>
+    <script src="static/vendors/wow/wow.js"></script>
+    <script src="static/vendors/isotope/isotope.js"></script>
+    <script src="static/vendors/countdown/countdown.min.js"></script>
+    <script src="static/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="static/vendors/bxslider/jquery.bxslider.min.js"></script>
+    <script src="static/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="static/vendors/vegas/vegas.min.js"></script>
+    <script src="static/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="static/vendors/timepicker/timePicker.js"></script>
+    <script src="static/vendors/circleType/jquery.circleType.js"></script>
+    <script src="static/vendors/circleType/jquery.lettering.min.js"></script>
+
+
+
+
+    <!-- template js -->
+    <script src="static/js/qrowd.js"></script>
+</body>
+
+
+<!-- Mirrored from qrowd-html.vercel.app/main-html/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Dec 2024 04:59:21 GMT -->
+</html>

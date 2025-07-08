@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Mirrored from qrowd-html.vercel.app/main-html/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Dec 2024 04:59:21 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Userdetails | Qrowd</title>
+    <!-- favicons Icons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="static/images/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="static/images/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="static/images/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="static/images/favicons/site.webmanifest" />
+    <meta name="description" content="Qrowd HTML 5 Template " />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="static/vendors/bootstrap/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="static/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="static/vendors/animate/custom-animate.css" />
+    <link rel="stylesheet" href="static/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="static/vendors/jarallax/jarallax.css" />
+    <link
+      rel="stylesheet"
+      href="static/vendors/jquery-magnific-popup/jquery.magnific-popup.css"
+    />
+    <link
+      rel="stylesheet"
+      href="static/vendors/nouislider/nouislider.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="static/vendors/nouislider/nouislider.pips.css"
+    />
+    <link rel="stylesheet" href="static/vendors/odometer/odometer.min.css" />
+    <link rel="stylesheet" href="static/vendors/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="static/vendors/qrowd-icons/style.css" />
+    <link
+      rel="stylesheet"
+      href="static/vendors/tiny-slider/tiny-slider.min.css"
+    />
+    <link rel="stylesheet" href="static/vendors/reey-font/stylesheet.css" />
+    <link
+      rel="stylesheet"
+      href="static/vendors/owl-carousel/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="static/vendors/owl-carousel/owl.theme.default.min.css"
+    />
+    <link rel="stylesheet" href="static/vendors/bxslider/jquery.bxslider.css" />
+    <link
+      rel="stylesheet"
+      href="static/vendors/bootstrap-select/css/bootstrap-select.min.css"
+    />
+    <link rel="stylesheet" href="static/vendors/vegas/vegas.min.css" />
+    <link rel="stylesheet" href="static/vendors/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="static/vendors/timepicker/timePicker.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="static/css/qrowd.css" />
+    <link rel="stylesheet" href="static/css/qrowd-responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+
+  <body class="custom-cursor">
+    {%if messages%}
+      {% for msg in messages%}
+        <script>alert("{{msg}}")</script>
+      {% endfor %}
+    {% endif %}
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+    <div class="preloader">
+      <div class="preloader__image"></div>
+    </div>
+    <!-- /.preloader -->
+
+    <div class="page-wrapper">
+      {% include "nav.html "%}
+
+      <div class="stricky-header stricked-menu main-menu">
+        <div class="sticky-header__content"></div>
+        <!-- /.sticky-header__content -->
+      </div>
+      <!-- /.stricky-header -->
+
+      <!--Contact One Start-->
+      <section class="contact-one" style="padding: 45px 0 120px">
+        <div class="container">
+          <div class="section-title text-center">
+            <h2 class="section-title__title">Create your profile!!</h2>
+          </div>
+          <div class="contact-one__form-box">
+            <form
+              action="fetchUserDetail"
+              method="post"
+              class="contact-one__form"
+              enctype="multipart/form-data"
+            >
+              {% csrf_token %}
+              <!--dob., exp., loc., photo., usertype., aadhar. , linkedin.-->
+              <div class="row">
+                <div class="col-xl-4">
+                  <div class="contact-form__input-box">
+                    <img
+                      src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                      alt="Profile Image"
+                      id="profileImage"
+                      style="position: relative; width: 40%; object-fit: cover"
+                    />
+                    <label
+                      for="fileInput"
+                      style="
+                        cursor: pointer;
+                        top: 58%;
+                        right: 64%;
+                        position: absolute;
+                        background: rgba(0, 0, 0, 0.5);
+                        color: white;
+                        padding: 0 5px;
+                      "
+                    >
+                      <i class="fa-solid fa-pen"></i>
+                    </label>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      id="fileInput"
+                      name="photo"
+                      style="display: none"
+                    />
+                    {% if errors.photo %}
+                    <span style="color: red; font-size: 14px">{{ errors.photo }}</span>
+                    {% endif %}
+                    <span style="color: red; font-size: 14px"></span>
+                  </div>
+                </div>
+                <div class="col-xl-5">
+                  <div class="contact-form__input-box">
+                    <input
+                      type="url"
+                      name="linkedin_url"
+                      placeholder="http://www.linkedin.com/in/your-profile"
+                      style="
+                        height: 60px;
+                        width: 100%;
+                        border: none;
+                        background-color: var(--qrowd-extra);
+                        padding-left: 30px;
+                        padding-right: 30px;
+                        outline: none;
+                        font-size: 14px;
+                        color: var(--qrowd-gray);
+                        display: block;
+                        font-weight: 500;
+                      "
+                    />
+                    {% if errors.linkedin_url %}
+                    <span style="color: red; font-size: 14px"
+                      >{{ errors.linkedin_url }}</span
+                    >
+                    {% endif %}
+                    <span style="color: red; font-size: 14px"></span>
+                  </div>
+                </div>
+                <div class="col-xl-3">
+                  <div class="contact-form__input-box">
+                    <select
+                      name="role"
+                      style="
+                        height: 60px;
+                        width: 100%;
+                        border: none;
+                        background-color: var(--qrowd-extra);
+                        padding-left: 30px;
+                        padding-right: 30px;
+                        outline: none;
+                        font-size: 14px;
+                        color: var(--qrowd-gray);
+                        display: block;
+                        font-weight: 500;
+                      "
+                    >
+                      <option value="">Choose Role</option>
+                      <option value="entrepreneur">Entrepreneur</option>
+                      <option value="investor">Investor</option>
+                    </select>
+                    {% if errors.role %}
+                    <span style="color: red; font-size: 14px"
+                      >{{ errors.role }}</span
+                    >
+                    {% endif %}
+                    <span style="color: red; font-size: 14px"></span>
+                  </div>
+                </div>
+                <div class="col-xl-4">
+                  <div class="contact-form__input-box">
+                    <select
+                      name="location"
+                      style="
+                        height: 60px;
+                        width: 100%;
+                        border: none;
+                        background-color: var(--qrowd-extra);
+                        padding-left: 30px;
+                        padding-right: 30px;
+                        outline: none;
+                        font-size: 14px;
+                        color: var(--qrowd-gray);
+                        display: block;
+                        font-weight: 500;
+                      "
+                    >
+                      <option value="">Choose State</option>
+                      {% for data in loc %}
+                      <option value="{{data.id}}">{{data.location}}</option>
+                      {% endfor %}
+                    </select>
+                    {% if errors.location %}
+                    <span style="color: red; font-size: 14px"
+                      >{{ errors.location }}</span
+                    >
+                    {% endif %}
+                    <span style="color: red; font-size: 14px"></span>
+                  </div>
+                </div>
+                <div class="col-xl-4">
+                  <div class="">
+                    <label for="">Aadhar card</label>
+
+                    <input
+                      type="file"
+                      name="aadhar_card"
+                      id=""
+                      accept="image/*"
+                    />
+                    {% if errors.aadhar_card %}
+                    <span style="color: red; font-size: 14px"
+                      >{{ errors.aadhar_card }}</span
+                    >
+                    {% endif %}
+                    <span style="color: red; font-size: 14px"></span>
+                  </div>
+                </div>
+                <div class="col-xl-4">
+                  <div class="contact-form__input-box">
+                    <label for="dob">Date of Birth</label>
+                    <input
+                      type="date"
+                      name="dob"
+                      style="
+                        height: 60px;
+                        width: 100%;
+                        border: none;
+                        background-color: var(--qrowd-extra);
+                        padding-left: 30px;
+                        padding-right: 30px;
+                        outline: none;
+                        font-size: 14px;
+                        color: var(--qrowd-gray);
+                        display: block;
+                        font-weight: 500;
+                      "
+                    />
+                    {% if errors.dob %}
+                    <span style="color: red; font-size: 14px"
+                      >{{ errors.dob }}</span
+                    >
+                    {% endif %}
+                    <span style="color: red; font-size: 14px"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xl-12">
+                  <div class="contact-form__input-box text-message-box">
+                    <textarea
+                      name="experience"
+                      placeholder="Your Experience"
+                    ></textarea>
+                    {% if errors.experience %}
+                    <span style="color: red; font-size: 14px"
+                      >{{ errors.experience }}</span
+                    >
+                    {% endif %}
+                    <span style="color: red; font-size: 14px"></span>
+                  </div>
+                  <div class="contact-form__btn-box">
+                    <button type="submit" class="thm-btn contact-form__btn">
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector(".contact-one__form");
+            const linkedinInput = document.querySelector(
+              'input[name="linkedin_url"]'
+            );
+            const roleSelect = document.querySelector('select[name="role"]');
+            const locationSelect = document.querySelector(
+              'select[name="location"]'
+            );
+            const aadharInput = document.querySelector(
+              'input[name="aadhar_card"]'
+            );
+            const dobInput = document.querySelector('input[name="dob"]');
+            const experienceTextarea = document.querySelector(
+              'textarea[name="experience"]'
+            );
+            const photoInput = document.querySelector('input[name="photo"]');
+
+            const linkedinError = linkedinInput.nextElementSibling;
+            const roleError = roleSelect.nextElementSibling;
+            const locationError = locationSelect.nextElementSibling;
+            const aadharError = aadharInput.nextElementSibling;
+            const dobError = dobInput.nextElementSibling;
+            const experienceError = experienceTextarea.nextElementSibling;
+            const photoError = photoInput.nextElementSibling;
+
+            // Real-time Validation
+            linkedinInput.addEventListener("input", validateLinkedin);
+            roleSelect.addEventListener("change", validateRole);
+            locationSelect.addEventListener("change", validateLocation);
+            aadharInput.addEventListener("change", validateAadhar);
+            dobInput.addEventListener("change", validateDOB);
+            experienceTextarea.addEventListener("input", validateExperience);
+            photoInput.addEventListener("change", validatePhoto);
+
+            // Form Submission Validation
+            form.addEventListener("submit", function (event) {
+              let isValid = true;
+
+              if (!validateLinkedin()) isValid = false;
+              if (!validateRole()) isValid = false;
+              if (!validateLocation()) isValid = false;
+              if (!validateAadhar()) isValid = false;
+              if (!validateDOB()) isValid = false;
+              if (!validateExperience()) isValid = false;
+              if (!validatePhoto()) isValid = false;
+
+              if (!isValid) {
+                event.preventDefault();
+              }
+            });
+
+            // Validation Functions
+            function validateLinkedin() {
+              const linkedinRegex =
+                /^(https?:\/\/)?(www\.)?linkedin\.com\/in\/[a-zA-Z0-9-]+\/?$/;
+              if (!linkedinInput.value.trim()) {
+                linkedinError.textContent = "LinkedIn URL is required.";
+                return false;
+              } else if (!linkedinRegex.test(linkedinInput.value.trim())) {
+                linkedinError.textContent =
+                  "Please enter a valid LinkedIn URL.";
+                return false;
+              } else {
+                linkedinError.textContent = "";
+                return true;
+              }
+            }
+
+            function validateRole() {
+              if (!roleSelect.value) {
+                roleError.textContent = "Please choose a role.";
+                return false;
+              } else {
+                roleError.textContent = "";
+                return true;
+              }
+            }
+
+            function validateLocation() {
+              if (!locationSelect.value) {
+                locationError.textContent = "Please choose a state.";
+                return false;
+              } else {
+                locationError.textContent = "";
+                return true;
+              }
+            }
+
+            function validateAadhar() {
+              if (!aadharInput.files || aadharInput.files.length === 0) {
+                aadharError.textContent = "Aadhar card is required.";
+                return false;
+              } else if (aadharInput.files[0].size > 25 * 1024 * 1024) {
+                aadharError.textContent = "File size must not exceed 25MB.";
+                return false;
+              } else {
+                aadharError.textContent = "";
+                return true;
+              }
+            }
+
+            function validateDOB() {
+              const dob = new Date(dobInput.value);
+              const today = new Date();
+              const minAgeDate = new Date(
+                today.setFullYear(today.getFullYear() - 18)
+              );
+              if (!dobInput.value) {
+                dobError.textContent = "Date of Birth is required.";
+                return false;
+              } else if (dob > minAgeDate) {
+                dobError.textContent = "You must be at least 18 years old.";
+                return false;
+              } else {
+                dobError.textContent = "";
+                return true;
+              }
+            }
+
+            function validateExperience() {
+              if (!experienceTextarea.value.trim()) {
+                experienceError.textContent = "Experience is required.";
+                return false;
+              } else {
+                experienceError.textContent = "";
+                return true;
+              }
+            }
+
+            function validatePhoto() {
+              if (!photoInput.files || photoInput.files.length === 0) {
+                photoError.textContent = "Photo is required.";
+                return false;
+              }
+              if (
+                photoInput.files &&
+                photoInput.files.length > 0 &&
+                photoInput.files[0].size > 25 * 1024 * 1024
+              ) {
+                photoError.textContent = "File size must not exceed 25MB.";
+                return false;
+              } else {
+                photoError.textContent = "";
+                return true;
+              }
+            }
+
+            // Set max date for DOB (18 years before today)
+            const today = new Date();
+            const minAgeDate = new Date(
+              today.setFullYear(today.getFullYear() - 18)
+            );
+            const maxDate = minAgeDate.toISOString().split("T")[0];
+            dobInput.setAttribute("max", maxDate);
+          });
+        </script>
+      </section>
+      <!--Contact One End-->
+
+      <!--Site Footer Start-->
+      {% include "footer.html" %}
+      <!--Site Footer End-->
+    </div>
+    <!-- /.page-wrapper -->
+
+    <div class="mobile-nav__wrapper">
+      <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+      <!-- /.mobile-nav__overlay -->
+      <div class="mobile-nav__content">
+        <span class="mobile-nav__close mobile-nav__toggler"
+          ><i class="fa fa-times"></i
+        ></span>
+
+        <div class="logo-box">
+          <a href="index.html" aria-label="logo image"
+            ><img src="static/images/resources/logo-2.png" width="143" alt=""
+          /></a>
+        </div>
+        <!-- /.logo-box -->
+        <div class="mobile-nav__container"></div>
+        <!-- /.mobile-nav__container -->
+
+        <ul class="mobile-nav__contact list-unstyled">
+          <li>
+            <i class="fa fa-envelope"></i>
+            <a href="mailto:needhelp@packageName__.com">needhelp@qrowd.com</a>
+          </li>
+          <li>
+            <i class="fa fa-phone-alt"></i>
+            <a href="tel:666-888-0000">666 888 0000</a>
+          </li>
+        </ul>
+        <!-- /.mobile-nav__contact -->
+        <div class="mobile-nav__top">
+          <div class="mobile-nav__social">
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-facebook-square"></a>
+            <a href="#" class="fab fa-pinterest-p"></a>
+            <a href="#" class="fab fa-instagram"></a>
+          </div>
+          <!-- /.mobile-nav__social -->
+        </div>
+        <!-- /.mobile-nav__top -->
+      </div>
+      <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+    
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"
+      ><i class="icon-right-arrow"></i
+    ></a>
+
+    <script src="static/vendors/jquery/jquery-3.6.0.min.js"></script>
+    <script src="static/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/vendors/jarallax/jarallax.min.js"></script>
+    <script src="static/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="static/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="static/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="static/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="static/vendors/jquery-validate/jquery.validate.min.js"></script>
+    <script src="static/vendors/nouislider/nouislider.min.js"></script>
+    <script src="static/vendors/odometer/odometer.min.js"></script>
+    <script src="static/vendors/swiper/swiper.min.js"></script>
+    <script src="static/vendors/tiny-slider/tiny-slider.min.js"></script>
+    <script src="static/vendors/wnumb/wNumb.min.js"></script>
+    <script src="static/vendors/wow/wow.js"></script>
+    <script src="static/vendors/isotope/isotope.js"></script>
+    <script src="static/vendors/countdown/countdown.min.js"></script>
+    <script src="static/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="static/vendors/bxslider/jquery.bxslider.min.js"></script>
+    <script src="static/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="static/vendors/vegas/vegas.min.js"></script>
+    <script src="static/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="static/vendors/timepicker/timePicker.js"></script>
+    <script src="static/vendors/circleType/jquery.circleType.js"></script>
+    <script src="static/vendors/circleType/jquery.lettering.min.js"></script>
+
+    <!-- template js -->
+    <script src="static/js/qrowd.js"></script>
+  </body>
+
+  <!-- Mirrored from qrowd-html.vercel.app/main-html/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Dec 2024 04:59:21 GMT -->
+</html>

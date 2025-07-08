@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Mirrored from qrowd-html.vercel.app/main-html/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Dec 2024 04:58:03 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Register</title>
+    <!-- favicons Icons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="static/images/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="static/images/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="static/images/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="static/images/favicons/site.webmanifest" />
+    <meta name="description" content="Qrowd HTML 5 Template " />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="static/vendors/bootstrap/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="static/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="static/vendors/animate/custom-animate.css" />
+    <link rel="stylesheet" href="static/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="static/vendors/jarallax/jarallax.css" />
+    <link
+      rel="stylesheet"
+      href="static/vendors/jquery-magnific-popup/jquery.magnific-popup.css"
+    />
+    <link
+      rel="stylesheet"
+      href="static/vendors/nouislider/nouislider.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="static/vendors/nouislider/nouislider.pips.css"
+    />
+    <link rel="stylesheet" href="static/vendors/odometer/odometer.min.css" />
+    <link rel="stylesheet" href="static/vendors/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="static/vendors/qrowd-icons/style.css" />
+    <link
+      rel="stylesheet"
+      href="static/vendors/tiny-slider/tiny-slider.min.css"
+    />
+    <link rel="stylesheet" href="static/vendors/reey-font/stylesheet.css" />
+    <link
+      rel="stylesheet"
+      href="static/vendors/owl-carousel/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="static/vendors/owl-carousel/owl.theme.default.min.css"
+    />
+    <link rel="stylesheet" href="static/vendors/bxslider/jquery.bxslider.css" />
+    <link
+      rel="stylesheet"
+      href="static/vendors/bootstrap-select/css/bootstrap-select.min.css"
+    />
+    <link rel="stylesheet" href="static/vendors/vegas/vegas.min.css" />
+    <link rel="stylesheet" href="static/vendors/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="static/vendors/timepicker/timePicker.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="static/css/qrowd.css" />
+    <link rel="stylesheet" href="static/css/qrowd-responsive.css" />
+  </head>
+
+  <body class="custom-cursor">
+    {% if messages %} {% for msg in messages %}
+    <script>
+      alert("{{msg}}");
+    </script>
+    {% endfor %} {% endif %}
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+    <div class="preloader">
+      <div class="preloader__image"></div>
+    </div>
+    <!-- /.preloader -->
+
+    <div class="page-wrapper">
+      <header class="main-header">
+        <div class="main-header__top">
+          <div class="main-header__top-inner">
+            <div class="main-header__top-left">
+              <ul class="list-unstyled main-header__contact-list">
+                <li>
+                  <div class="icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="text">
+                    <p>30 Commercial road fratton, Australia</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="text">
+                    <p>
+                      <a href="mailto:needhelp@company.com"
+                        >needhelp@company.com</a
+                      >
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="main-header__top-right">
+              <div class="main-header__login">
+                <ul class="list-unstyled main-header__login-list">
+                  {% if request.session.log_username %}
+                  <li>
+                    <a href="logout"> <i class="icon-account"></i> Logout</a>
+                  </li>
+                  {% else %}
+                  <li>
+                    <a href="login"> <i class="icon-account"></i>Login</a>
+                  </li>
+                  <li><a href="register">Register</a></li>
+                  {% endif %}
+                </ul>
+              </div>
+              <div class="main-header__social">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="stricky-header stricked-menu main-menu">
+        <div class="sticky-header__content"></div>
+        <!-- /.sticky-header__content -->
+      </div>
+      <!-- /.stricky-header -->
+
+      <div class="container">
+        <div class="row" style="margin-left: 350px; margin-bottom: 70px">
+          <div class="col-lg-6">
+            <h3
+              class="login-register__title"
+              style="text-align: center; margin-top: 10px"
+            >
+              Register
+            </h3>
+            <!-- /.login-register__title -->
+            <form
+              class="login-register__form"
+              action="fetchregisterdata"
+              method="post"
+            >
+              {% csrf_token %}
+              <div class="contact-form__input-box">
+                <input
+                  type="text"
+                  placeholder="Username"
+                  name="username"
+                  pattern="^[A-Za-z]+(?:\s[A-Za-z]+)*$"
+                  minlength="3"
+                  maxlength="30"
+                  style="
+                    height: 60px;
+                    width: 100%;
+                    border: none;
+                    background-color: var(--qrowd-extra);
+                    padding-left: 30px;
+                    padding-right: 30px;
+                    outline: none;
+                    font-size: 14px;
+                    color: var(--qrowd-gray);
+                    display: block;
+                    font-weight: 500;
+                  "
+                  id="username"
+                />
+                {% if errors.username  and submitted %}
+                <span style="color: red; font-size: 14px"
+                  >{{ errors.username }}</span
+                >
+                {% endif %}
+                <span
+                  style="font-size: 15px; display: none; color: red"
+                  id="username-error"
+                ></span>
+              </div>
+              <div class="contact-form__input-box">
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  name="email"
+                  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                  style="
+                    height: 60px;
+                    width: 100%;
+                    border: none;
+                    background-color: var(--qrowd-extra);
+                    padding-left: 30px;
+                    padding-right: 30px;
+                    outline: none;
+                    font-size: 14px;
+                    color: var(--qrowd-gray);
+                    display: block;
+                    font-weight: 500;
+                  "
+                  id="email"
+                />
+                {% if errors.email and submitted %}
+                <span style="color: red; font-size: 14px"
+                  >{{ errors.email }}</span
+                >
+                {% endif %}
+
+                <span
+                  style="font-size: 15px; display: none; color: red"
+                  id="email-error"
+                ></span>
+              </div>
+              <div class="contact-form__input-box">
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  name="phone"
+                  pattern="^[6789]\d{9}$"
+                  maxlength="10"
+                  style="
+                    height: 60px;
+                    width: 100%;
+                    border: none;
+                    background-color: var(--qrowd-extra);
+                    padding-left: 30px;
+                    padding-right: 30px;
+                    outline: none;
+                    font-size: 14px;
+                    display: block;
+                    font-weight: 500;
+                    color: var(--qrowd-gray);
+                  "
+                  id="phone"
+                />
+                {% if errors.phone  and submitted %}
+                <span style="color: red; font-size: 14px"
+                  >{{ errors.phone }}</span
+                >
+                {% endif %}
+
+                <span
+                  style="font-size: 15px; display: none; color: red"
+                  id="phone-error"
+                ></span>
+              </div>
+              <!-- /.contact-form__input-box -->
+              <div class="contact-form__input-box" style="position: relative">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  maxlength="8"
+                  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                  style="
+                    height: 60px;
+                    width: 100%;
+                    border: none;
+                    background-color: var(--qrowd-extra);
+                    padding-left: 30px;
+                    padding-right: 50px;
+                    outline: none;
+                    font-size: 14px;
+                    display: block;
+                    font-weight: 500;
+                    color: var(--qrowd-gray);
+                  "
+                  id="password"
+                />
+                {% if errors.password and submitted %}
+                <span style="color: red; font-size: 14px"
+                  >{{ errors.password }}</span
+                >
+                {% endif %}
+
+                <span
+                  style="font-size: 15px; display: none; color: red"
+                  id="password-error"
+                ></span>
+              </div>
+
+              <!-- /.contact-form__input-box -->
+              <div class="login-register__checkbox">
+                <input
+                  type="checkbox"
+                  id="login-register__policy"
+                  name="login-register__policy"
+                />
+                <label for="login-register__policy"
+                  >I accept company <a href="privacypolicy">privacy policy</a>.</label
+                >
+                {% if errors.policy and submitted %}
+                <span style="color: red; font-size: 14px"
+                  >{{ errors.policy }}</span
+                >
+                {% endif %}
+                <span
+                  id="policy-error"
+                  style="font-size: 15px; display: none; color: red"
+                ></span>
+              </div>
+              <!-- /.contact-form__input-box -->
+              <div class="login-register__info">
+                <button type="submit" class="thm-btn login-register__btn">
+                  Register
+                </button>
+                <div class="login-register__text">
+                  Already Registered ? <a href="login"><b> Login</b></a>
+                </div>
+              </div>
+              <!-- /.login-register__info -->
+            </form>
+          </div>
+          <!-- /.col-lg-6 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container -->
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const form = document.querySelector(".login-register__form");
+          const usernameInput = document.getElementById("username");
+          const emailInput = document.getElementById("email");
+          const phoneInput = document.getElementById("phone");
+          const passwordInput = document.getElementById("password");
+          const policyCheckbox = document.getElementById("login-register__policy");
+        
+          const usernameError = document.getElementById("username-error");
+          const emailError = document.getElementById("email-error");
+          const phoneError = document.getElementById("phone-error");
+          const passwordError = document.getElementById("password-error");
+          const policyError = document.getElementById("policy-error");
+        
+          // Hide server-side errors when the user starts typing
+          usernameInput.addEventListener("input", () => {
+            if (usernameError.textContent) usernameError.style.display = "none";
+            validateUsername(); // Trigger client-side validation
+          });
+          emailInput.addEventListener("input", () => {
+            if (emailError.textContent) emailError.style.display = "none";
+            validateEmail(); // Trigger client-side validation
+          });
+          phoneInput.addEventListener("input", () => {
+            if (phoneError.textContent) phoneError.style.display = "none";
+            validatePhone(); // Trigger client-side validation
+          });
+          passwordInput.addEventListener("input", () => {
+            if (passwordError.textContent) passwordError.style.display = "none";
+            validatePassword(); // Trigger client-side validation
+          });
+          policyCheckbox.addEventListener("change", () => {
+            if (policyError.textContent) policyError.style.display = "none";
+            validatePolicy(); // Trigger client-side validation
+          });
+        
+          // Form Submission Validation
+          form.addEventListener("submit", function (event) {
+            let isValid = true;
+        
+            // Validate all fields
+            if (!validateUsername()) isValid = false;
+            if (!validateEmail()) isValid = false;
+            if (!validatePhone()) isValid = false;
+            if (!validatePassword()) isValid = false;
+            if (!validatePolicy()) isValid = false;
+        
+            // Prevent form submission if validation fails
+            if (!isValid) {
+              event.preventDefault();
+            }
+          });
+        
+          // Validation Functions
+          function validateUsername() {
+            const usernameRegex = /^[A-Za-z]+(?:\s[A-Za-z]+)*$/;
+            if (usernameInput.value.trim() === "") {
+              usernameError.textContent = "Username cannot be empty.";
+              usernameError.style.display = "block";
+              return false;
+            } else if (
+              !usernameRegex.test(usernameInput.value.trim()) ||
+              usernameInput.value.length < 3 ||
+              usernameInput.value.length > 30
+            ) {
+              usernameError.textContent =
+                "Username must be 3-30 characters and cannot contain numbers or special characters.";
+              usernameError.style.display = "block";
+              return false;
+            } else {
+              usernameError.style.display = "none";
+              return true;
+            }
+          }
+        
+          function validateEmail() {
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (emailInput.value.trim() === "") {
+              emailError.textContent = "Email cannot be empty.";
+              emailError.style.display = "block";
+              return false;
+            } else if (!emailRegex.test(emailInput.value.trim())) {
+              emailError.textContent = "Please enter a valid email address.";
+              emailError.style.display = "block";
+              return false;
+            } else {
+              emailError.style.display = "none";
+              return true;
+            }
+          }
+        
+          function validatePhone() {
+            const phoneRegex = /^[6789]\d{9}$/;
+            if (phoneInput.value.trim() === "") {
+              phoneError.textContent = "Phone number cannot be empty.";
+              phoneError.style.display = "block";
+              return false;
+            } else if (!phoneRegex.test(phoneInput.value.trim())) {
+              phoneError.textContent =
+                "Please enter a valid phone number. Phone number should start with 6, 7, 8, or 9 and must be 10 digits long.";
+              phoneError.style.display = "block";
+              return false;
+            } else {
+              phoneError.style.display = "none";
+              return true;
+            }
+          }
+        
+          function validatePassword() {
+            const passwordRegex =
+              /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (passwordInput.value.trim() === "") {
+              passwordError.textContent = "Password cannot be empty.";
+              passwordError.style.display = "block";
+              return false;
+            } else if (!passwordRegex.test(passwordInput.value.trim())) {
+              passwordError.textContent =
+                "Password must be of 8 characters, including one uppercase, one lowercase, one digit, and one special character.";
+              passwordError.style.display = "block";
+              return false;
+            } else {
+              passwordError.style.display = "none";
+              return true;
+            }
+          }
+        
+          function validatePolicy() {
+            if (!policyCheckbox.checked) {
+              policyError.textContent = "You must accept the privacy policy.";
+              policyError.style.display = "block";
+              return false;
+            } else {
+              policyError.style.display = "none";
+              return true;
+            }
+          }
+        });
+      </script>
+
+      
+    </div>
+    <!-- /.page-wrapper -->
+
+    <div class="mobile-nav__wrapper">
+      <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+      <!-- /.mobile-nav__overlay -->
+      <div class="mobile-nav__content">
+        <span class="mobile-nav__close mobile-nav__toggler"
+          ><i class="fa fa-times"></i
+        ></span>
+
+        <div class="logo-box">
+          <a href="index.html" aria-label="logo image"
+            ><img src="static/images/resources/logo-2.png" width="143" alt=""
+          /></a>
+        </div>
+        <!-- /.logo-box -->
+        <div class="mobile-nav__container"></div>
+        <!-- /.mobile-nav__container -->
+
+        <ul class="mobile-nav__contact list-unstyled">
+          <li>
+            <i class="fa fa-envelope"></i>
+            <a href="mailto:needhelp@packageName__.com">needhelp@qrowd.com</a>
+          </li>
+          <li>
+            <i class="fa fa-phone-alt"></i>
+            <a href="tel:666-888-0000">666 888 0000</a>
+          </li>
+        </ul>
+        <!-- /.mobile-nav__contact -->
+        <div class="mobile-nav__top">
+          <div class="mobile-nav__social">
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-facebook-square"></a>
+            <a href="#" class="fab fa-pinterest-p"></a>
+            <a href="#" class="fab fa-instagram"></a>
+          </div>
+          <!-- /.mobile-nav__social -->
+        </div>
+        <!-- /.mobile-nav__top -->
+      </div>
+      <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+    
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"
+      ><i class="icon-right-arrow"></i
+    ></a>
+
+    <script src="static/vendors/jquery/jquery-3.6.0.min.js"></script>
+    <script src="static/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/vendors/jarallax/jarallax.min.js"></script>
+    <script src="static/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="static/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="static/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="static/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="static/vendors/jquery-validate/jquery.validate.min.js"></script>
+    <script src="static/vendors/nouislider/nouislider.min.js"></script>
+    <script src="static/vendors/odometer/odometer.min.js"></script>
+    <script src="static/vendors/swiper/swiper.min.js"></script>
+    <script src="static/vendors/tiny-slider/tiny-slider.min.js"></script>
+    <script src="static/vendors/wnumb/wNumb.min.js"></script>
+    <script src="static/vendors/wow/wow.js"></script>
+    <script src="static/vendors/isotope/isotope.js"></script>
+    <script src="static/vendors/countdown/countdown.min.js"></script>
+    <script src="static/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="static/vendors/bxslider/jquery.bxslider.min.js"></script>
+    <script src="static/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="static/vendors/vegas/vegas.min.js"></script>
+    <script src="static/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="static/vendors/timepicker/timePicker.js"></script>
+    <script src="static/vendors/circleType/jquery.circleType.js"></script>
+    <script src="static/vendors/circleType/jquery.lettering.min.js"></script>
+
+    <!-- template js -->
+    <script src="static/js/qrowd.js"></script>
+  </body>
+
+  <!-- Mirrored from qrowd-html.vercel.app/main-html/login-register.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Dec 2024 04:58:05 GMT -->
+</html>

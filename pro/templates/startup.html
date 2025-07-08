@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from qrowd-html.vercel.app/main-html/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Dec 2024 04:59:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register your Startup  | Qrowd </title>
+    <!-- favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="static/images/favicons/site.webmanifest" />
+    <meta name="description" content="Qrowd HTML 5 Template " />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="static/vendors/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="static/vendors/animate/animate.min.css" />
+    <link rel="stylesheet" href="static/vendors/animate/custom-animate.css" />
+    <link rel="stylesheet" href="static/vendors/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="static/vendors/jarallax/jarallax.css" />
+    <link rel="stylesheet" href="static/vendors/jquery-magnific-popup/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="static/vendors/nouislider/nouislider.min.css" />
+    <link rel="stylesheet" href="static/vendors/nouislider/nouislider.pips.css" />
+    <link rel="stylesheet" href="static/vendors/odometer/odometer.min.css" />
+    <link rel="stylesheet" href="static/vendors/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="static/vendors/qrowd-icons/style.css">
+    <link rel="stylesheet" href="static/vendors/tiny-slider/tiny-slider.min.css" />
+    <link rel="stylesheet" href="static/vendors/reey-font/stylesheet.css" />
+    <link rel="stylesheet" href="static/vendors/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="static/vendors/owl-carousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="static/vendors/bxslider/jquery.bxslider.css" />
+    <link rel="stylesheet" href="static/vendors/bootstrap-select/css/bootstrap-select.min.css" />
+    <link rel="stylesheet" href="static/vendors/vegas/vegas.min.css" />
+    <link rel="stylesheet" href="static/vendors/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="static/vendors/timepicker/timePicker.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="static/css/qrowd.css" />
+    <link rel="stylesheet" href="static/css/qrowd-responsive.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body class="custom-cursor">
+{%if messages%}
+    {% for msg in messages%}
+        <script>alert("{{msg}}")</script>
+    {% endfor %}
+{% endif %}
+    <div class="custom-cursor__cursor"></div>
+    <div class="custom-cursor__cursor-two"></div>
+
+
+
+
+
+    <div class="preloader">
+        <div class="preloader__image"></div>
+    </div>
+    <!-- /.preloader -->
+
+
+    <div class="page-wrapper">
+        {% include "nav.html "%}
+
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+        </div><!-- /.stricky-header -->
+
+
+        <!--Contact One Start-->
+        <section class="contact-one" style="padding: 45px 0 120px;">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2 class="section-title__title">Register your Startup</h2>
+                </div>
+                <div class="contact-one__form-box">
+                    <form action="startupDetail" method="post" class="contact-one__form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <!--category., sname., desc., loc,, creation date., phone no., websiteURL., semail., funding goal, equityoffer, amountRaise-->
+                        <div class="row">
+                             <div class="col-xl-4">
+                                 <div class="contact-form__input-box">
+                                    <select name="category" style="height: 60px; width:100%; border: none; background-color: var(--qrowd-extra); padding-left: 20px; padding-right: 30px; outline: none; font-size: 14px; color: var(--qrowd-gray); display: block; font-weight: 500;">
+                                        <option value="">Select Category</option>
+                                        {% for data in allcatdata %}
+                                            <option value="{{ data.id }}">{{data.category}}</option>
+                                        {% endfor %}
+                                    </select>
+                                    {% if errors.category %}
+                                        <span style="color: red; font-size: 14px"> 
+                                        {{ errors.category }}</span>
+                                    {% endif %}
+                                    <span style="color: red; font-size: 14px" id="categoryError"></span>
+                                 </div>
+                             </div>
+                            <div class="col-xl-4">
+                                <div class="contact-form__input-box">
+                                    <input type="text" placeholder="Startup Name" name="startup_name" maxlength="50" style="height: 60px; width:100%; border: none; background-color: var(--qrowd-extra); padding-left: 30px; padding-right: 30px; outline: none; font-size: 14px; color: var(--qrowd-gray); display: block; font-weight: 500;">
+                                    {% if errors.startup_name %}
+                                            <span style="color: red; font-size: 14px"> 
+                                            {{ errors.startup_name }}</span>
+                                    {% endif %}
+                                    <span style="color: red; font-size: 14px" id="StartupNameError"> </span>
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="contact-form__input-box">
+                                    <select name="location" style="height: 60px; width:100%; border: none; background-color: var(--qrowd-extra); padding-left: 30px; padding-right: 30px; outline: none; font-size: 14px; color: var(--qrowd-gray); display: block; font-weight: 500;">
+                                        <option value="">Choose State</option>
+                                        {% for data in loc%}
+                                            <option value="{{data.id}}">{{data.location}}</option>
+                                        {% endfor %}
+                                    </select>
+                                    {% if errors.location %}
+                                        <span style="color: red; font-size: 14px"> 
+                                        {{ errors.location }}</span>
+                                    {% endif %} 
+                                    <span style="color: red; font-size: 14px" id="locationError"> </span>
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="contact-form__input-box">
+                                    <label>Creation Date:</label>
+                                    <input type="date"  name="creation_date" max="" style="height: 60px; width:100%; border: none; background-color: var(--qrowd-extra); padding-left: 30px; padding-right: 30px; outline: none; font-size: 14px; color: var(--qrowd-gray); display: block; font-weight: 500;">
+                                    {% if errors.creation_date %}
+                                            <span style="color: red; font-size: 14px"> 
+                                            {{ errors.creation_date }}</span>
+                                    {% endif %} 
+                                        <span style="color: red; font-size: 14px" id="dateError"> </span>
+                                </div>
+                            </div>
+                            <div class="col-xl-4" style="margin-top: 30px;">
+                                <div class="contact-form__input-box" >
+                                   <input type="tel" placeholder="Phone Number" name="phone" style="height: 60px; width:100%; border: none; background-color: var(--qrowd-extra); padding-left: 30px; padding-right: 30px; outline: none; font-size: 14px; color: var(--qrowd-gray); display: block; font-weight: 500;" maxlength="10">
+                                   {% if errors.phone %}
+                                           <span style="color: red; font-size: 14px"> 
+                                           {{ errors.phone }}</span>
+                                       {% endif %} 
+                                       <span style="color: red; font-size: 14px" id="phoneError"> </span>
+                                </div>
+                            </div>
+                            <div class="col-xl-4" style="margin-top: 30px;">
+                                <div class="contact-form__input-box">
+                                   <input type="url" placeholder="Startup Website URL" name="website_url" style="height: 60px; width:100%; border: none; background-color: var(--qrowd-extra); padding-left: 30px; padding-right: 30px; outline: none; font-size: 14px; color: var(--qrowd-gray); display: block; font-weight: 500;">
+                                   {% if errors.website_url %}
+                                           <span style="color: red; font-size: 14px"> 
+                                           {{ errors.website_url }}</span>
+                                       {% endif %} 
+                                       <span style="color: red; font-size: 14px" id="URLError"> </span>
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="contact-form__input-box">
+                                   <input type="email" placeholder="Startup Email Address" name="startup_email" style="height: 60px; width:100%; border: none; background-color: var(--qrowd-extra); padding-left: 30px; padding-right: 30px; outline: none; font-size: 14px; color: var(--qrowd-gray); display: block; font-weight: 500;">
+                                   {% if errors.startup_email %}
+                                           <span style="color: red; font-size: 14px"> 
+                                           {{ errors.startup_email }}</span>
+                                       {% endif %} 
+                                       <span style="color: red; font-size: 14px" id="StartupEmailError"> </span>
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="contact-form__input-box">
+                                   <input type="number" name="amount_to_raise" placeholder="Amount to raise" style="height: 60px; width:100%; border: none; background-color: var(--qrowd-extra); padding-left: 30px; padding-right: 30px; outline: none; font-size: 14px; color: var(--qrowd-gray); display: block; font-weight: 500;">
+                                   {% if errors.amount_to_raise %}
+                                           <span style="color: red; font-size: 14px"> 
+                                           {{ errors.amount_to_raise }}</span>
+                                       {% endif %} 
+                                       <span style="color: red; font-size: 14px" id="AmountError"> </span>
+                                </div>
+                            </div>
+                            <div class="col-xl-4">
+                                <div class="contact-form__input-box">
+                                   <input type="number" name="equity" placeholder="Equity offer" step="0.1" style="height: 60px; width:100%; border: none; background-color: var(--qrowd-extra); padding-left: 30px; padding-right: 30px; outline: none; font-size: 14px; color: var(--qrowd-gray); display: block; font-weight: 500;">
+                                   {% if errors.equity %}
+                                           <span style="color: red; font-size: 14px"> 
+                                           {{ errors.equity }}</span>
+                                       {% endif %} 
+                                       <span style="color: red; font-size: 14px" id="EquityError"> </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="contact-form__input-box text-message-box">
+                                    <textarea name="funding_goal" placeholder="Write detail Funding Goal of Startup..."></textarea>
+                                </div>
+                                {% if errors.funding_goal %}
+                                    <span style="color: red; font-size: 14px"> 
+                                    {{ errors.funding_goal }}</span>
+                                {% endif %} 
+                                <span style="color: red; font-size: 14px" id="goalError"> </span>
+                                <div class="contact-form__input-box text-message-box">
+                                    <textarea name="description" placeholder="Write detail Description of Startup..."></textarea>
+                                    {% if errors.description %}
+                                        <span style="color: red; font-size: 14px"> 
+                                        {{ errors.description }}</span>
+                                    {% endif %} 
+                                    <span style="color: red; font-size: 14px" id="descError"> </span>
+                                </div>
+                                <div class="contact-form__btn-box">
+                                    <button type="submit" class="thm-btn contact-form__btn">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const form = document.querySelector(".contact-one__form");
+                    const categorySelect = document.querySelector('select[name="category"]');
+                    const nameInput = document.querySelector('input[name="startup_name"]');
+                    const locationSelect = document.querySelector('select[name="location"]');
+                    const dateInput = document.querySelector('input[name="creation_date"]');
+                    const today = new Date().toISOString().split('T')[0];
+                    dateInput.setAttribute('max', today);
+                    const phoneInput = document.querySelector('input[name="phone"]');
+                    const websiteInput = document.querySelector('input[name="website_url"]');
+                    const emailInput = document.querySelector('input[name="startup_email"]');
+                    const amountInput = document.querySelector('input[name="amount_to_raise"]');
+                    const equityInput = document.querySelector('input[name="equity"]');
+                    const goalInput = document.querySelector('textarea[name="funding_goal"]');
+                    const descInput = document.querySelector('textarea[name="description"]');
+                
+                    const categoryError = document.getElementById('categoryError');
+                    const nameError = document.getElementById('StartupNameError');
+                    const locationError = document.getElementById('locationError');
+                    const dateError = document.getElementById('dateError');
+                    const phoneError = document.getElementById('phoneError');
+                    const URLError = document.getElementById('URLError');
+                    const emailError = document.getElementById('StartupEmailError');
+                    const amountError = document.getElementById('AmountError');
+                    const equityError = document.getElementById('EquityError');
+                    const goalError = document.getElementById('goalError');
+                    const descError = document.getElementById('descError');
+                
+                    // Real-time validation event listeners
+                    categorySelect.addEventListener("change", validateCategory);
+                    nameInput.addEventListener("input", validateName);
+                    locationSelect.addEventListener("change", validateLocation);
+                    dateInput.addEventListener("input", validateDate);
+                    phoneInput.addEventListener("input", validatePhone);
+                    websiteInput.addEventListener("input", validateWebsite);
+                    emailInput.addEventListener("input", validateEmail);
+                    amountInput.addEventListener("input", validateAmount);
+                    equityInput.addEventListener("input", validateEquity);
+                    goalInput.addEventListener("input", validateGoal);
+                    descInput.addEventListener("input", validateDesc);
+                    
+                    // Validation functions
+                    function validateCategory() {
+                        if (!categorySelect.value) {
+                            categoryError.textContent = 'Please select a category.';
+                            return false;
+                        } else {
+                            categoryError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    function validateName() {
+                        const startupName = nameInput.value.trim();
+                        if (!startupName) {
+                            nameError.textContent = 'Startup name is required.';
+                            return false;
+                        } else if (startupName.length < 3 || startupName.length > 50) {
+                            nameError.textContent = 'Startup name must be between 3 and 50 characters.';
+                            return false;
+                        } else {
+                            nameError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    function validateLocation() {
+                        if (!locationSelect.value) {
+                            locationError.textContent = 'Please choose a state.';
+                            return false;
+                        } else {
+                            locationError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    function validateDate() {
+                        const creationDate = dateInput.value;
+                        const currentDate = new Date().toISOString().split('T')[0];
+                        if (!creationDate) {
+                            dateError.textContent = 'Creation date is required.';
+                            return false;
+                        } else if (creationDate > currentDate) {
+                            dateError.textContent = 'Creation date cannot exceed the current date.';
+                            return false;
+                        } else {
+                            dateError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    function validatePhone() {
+                        const phone = phoneInput.value.trim();
+                        const indianPhoneRegex = /^[6-9]\d{9}$/;
+                        if (!phone) {
+                            phoneError.textContent = 'Phone number is required.';
+                            return false;
+                        } else if (!indianPhoneRegex.test(phone)) {
+                            phoneError.textContent = 'Please enter a valid Indian phone number that starts with 6, 7, 8 or 9.';
+                            return false;
+                        } else {
+                            phoneError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    function validateWebsite() {
+                        const websiteUrl = websiteInput.value.trim();
+                        const urlRegex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+                        if (!websiteUrl) {
+                            URLError.textContent = 'Website URL is required.';
+                            return false;
+                        } else if (!urlRegex.test(websiteUrl)) {
+                            URLError.textContent = 'Please enter a valid website URL.';
+                            return false;
+                        } else {
+                            URLError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    function validateEmail() {
+                        const email = emailInput.value.trim();
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!email) {
+                            emailError.textContent = 'Email is required.';
+                            return false;
+                        } else if (!emailRegex.test(email)) {
+                            emailError.textContent = 'Please enter a valid email address.';
+                            return false;
+                        } else {
+                            emailError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    function validateAmount() {
+                        const amountToRaise = amountInput.value.trim();
+                        if (!amountToRaise) {
+                            amountError.textContent = 'Amount to raise is required.';
+                            return false;
+                        } else if (parseFloat(amountToRaise) <= 0) {
+                            amountError.textContent = 'Amount to raise must be greater than 0.';
+                            return false;
+                        } else {
+                            amountError.textContent = '';
+                            return true;
+                        }
+                    }
+                    
+                    function validateEquity() {
+                        const equityOffer = equityInput.value.trim();
+                        if (!equityOffer) {
+                            equityError.textContent = 'Equity offer is required.';
+                            return false;
+                        } else if (parseFloat(equityOffer) <= 0) {
+                            equityError.textContent = 'Equity offer must be greater than 0.';
+                            return false;
+                        } else {
+                            equityError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    function validateGoal() {
+                        const fundingGoal = goalInput.value.trim();
+                        if (!fundingGoal) {
+                            goalError.textContent = 'Funding goal is required.';
+                            return false;
+                        } else {
+                            goalError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    function validateDesc() {
+                        const description = descInput.value.trim();
+                        if (!description) {
+                            descError.textContent = 'Description is required.';
+                            return false;
+                        } else {
+                            descError.textContent = '';
+                            return true;
+                        }
+                    }
+                
+                    // Form submission validation
+                    form.addEventListener("submit", function (event) {
+                        let isValid = true;
+                
+                        if (!validateCategory()) isValid = false;
+                        if (!validateName()) isValid = false;
+                        if (!validateLocation()) isValid = false;
+                        if (!validateDate()) isValid = false;
+                        if (!validatePhone()) isValid = false;
+                        if (!validateWebsite()) isValid = false;
+                        if (!validateEmail()) isValid = false;
+                        if (!validateAmount()) isValid = false;
+                        if (!validateEquity()) isValid = false;
+                        if (!validateGoal()) isValid = false;
+                        if (!validateDesc()) isValid = false;
+                
+                        if (!isValid) {
+                            event.preventDefault();
+                        }
+                    });
+                });   
+            </script>
+        </section>
+        <!--Contact One End-->
+
+
+
+
+        <!--Site Footer Start-->
+        {% include "footer.html" %}
+        <!--Site Footer End-->
+
+
+    </div><!-- /.page-wrapper -->
+
+
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <!-- /.mobile-nav__overlay -->
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+
+            <div class="logo-box">
+                <a href="index.html" aria-label="logo image"><img src="static/images/resources/logo-2.png" width="143"
+                        alt="" /></a>
+            </div>
+            <!-- /.logo-box -->
+            <div class="mobile-nav__container"></div>
+            <!-- /.mobile-nav__container -->
+
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto:needhelp@packageName__.com">needhelp@qrowd.com</a>
+                </li>
+                <li>
+                    <i class="fa fa-phone-alt"></i>
+                    <a href="tel:666-888-0000">666 888 0000</a>
+                </li>
+            </ul><!-- /.mobile-nav__contact -->
+            <div class="mobile-nav__top">
+                <div class="mobile-nav__social">
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-facebook-square"></a>
+                    <a href="#" class="fab fa-pinterest-p"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                </div><!-- /.mobile-nav__social -->
+            </div><!-- /.mobile-nav__top -->
+
+
+
+        </div>
+        <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+   
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="icon-right-arrow"></i></a>
+
+
+    <script src="static/vendors/jquery/jquery-3.6.0.min.js"></script>
+    <script src="static/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="static/vendors/jarallax/jarallax.min.js"></script>
+    <script src="static/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="static/vendors/jquery-appear/jquery.appear.min.js"></script>
+    <script src="static/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="static/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="static/vendors/jquery-validate/jquery.validate.min.js"></script>
+    <script src="static/vendors/nouislider/nouislider.min.js"></script>
+    <script src="static/vendors/odometer/odometer.min.js"></script>
+    <script src="static/vendors/swiper/swiper.min.js"></script>
+    <script src="static/vendors/tiny-slider/tiny-slider.min.js"></script>
+    <script src="static/vendors/wnumb/wNumb.min.js"></script>
+    <script src="static/vendors/wow/wow.js"></script>
+    <script src="static/vendors/isotope/isotope.js"></script>
+    <script src="static/vendors/countdown/countdown.min.js"></script>
+    <script src="static/vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="static/vendors/bxslider/jquery.bxslider.min.js"></script>
+    <script src="static/vendors/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="static/vendors/vegas/vegas.min.js"></script>
+    <script src="static/vendors/jquery-ui/jquery-ui.js"></script>
+    <script src="static/vendors/timepicker/timePicker.js"></script>
+    <script src="static/vendors/circleType/jquery.circleType.js"></script>
+    <script src="static/vendors/circleType/jquery.lettering.min.js"></script>
+
+
+
+
+    <!-- template js -->
+    <script src="static/js/qrowd.js"></script>
+</body>
+
+
+<!-- Mirrored from qrowd-html.vercel.app/main-html/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Dec 2024 04:59:21 GMT -->
+</html>
