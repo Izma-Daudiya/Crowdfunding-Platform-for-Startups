@@ -1,3 +1,42 @@
-# Default ignored files
-/shelf/
-/workspace.xml
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django migrations
+*/migrations/
+!*/migrations/__init__.py
+
+# SQLite database
+*.sqlite3
+
+# Django secret key file (if separated)
+.env
+*.env
+
+# Media and static files (optional for dev)
+media/
+staticfiles/
+
+# VSCode and IDE configs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# Pip dependency files
+pip-log.txt
+
+# Logs
+*.log
+
+# Local settings (optional)
+settings_local.py
