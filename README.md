@@ -16,7 +16,7 @@ Payment Gateway: Razorpay
 Version Control: Git & GitHub
 
 🚀 How to Run Locally
-git clone https://github.com/your-username/crowdfunding-platform.git
+git clone https://github.com/Izma-Daudiya/Crowdfunding-Platform-for-Startups.git
 cd crowdfunding-platform
 pip install -r requirements.txt
 python manage.py migrate
