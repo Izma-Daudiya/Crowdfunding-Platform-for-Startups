@@ -1,4 +1,4 @@
-<h1>Crowdfunding Platform for Startups:</h1><br>
+<h1>Crowdfunding Platform for Startups:</h1>
 <h3>A full-stack web application that allows entrepreneurs to create and launch startup campaigns, while enabling investors to browse and fund promising startups. Built using Django for the backend and HTML, CSS, JavaScript, Bootstrap for the frontend. Integrated with Razorpay API for secure online payments.</h3>
 
 <h3>🔧 Features</h3>
